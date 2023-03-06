@@ -1,45 +1,13 @@
 # ardupilot_ros_noetic_gazebo11
-Download Boost
+### Download Boost
 ```
+sudo apt remove libboost-all-dev -y
+sudo apt autoremove -y
+sudo apt apt purge -y libboost*
+sudo apt install libboost-all-dev
 sudo apt update && sudo apt upgrade
 ```
-```
-sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev
-wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz
-tar xvf boost_1_80_0.tar.gz
-cd boost_1_80_0
-./bootstrap.sh --prefix=/usr/
-sudo ./b2 install
-```
-
-Download Ardupilot
-```
-git clone https://github.com/ArduPilot/ardupilot.git
-cd ardupilot
-git submodule update --init --recursive
-git config --global url.https://.insteadOf git://
-Tools/environment_install/install-prereqs-ubuntu.sh -y
-
-. ~/.profile
-```
-
-In your bash.rc
-```
-export PATH=$PATH:$HOME/ardupilot/Tools/autotest
-export PATH=/usr/lib/ccache:$PATH
-```
-
-Reload bash.rc
-```
-. ~/.bashrc
-```
-
-# Install Ardupilot ROS noetic
-```
-source ~/ardupilot/Tools/environment_install/install-ROS-ubuntu.sh
-```
-
-# Install the colmap
+### Install the colmap
 ```
 sudo apt-get install \
     git \
@@ -63,7 +31,6 @@ sudo apt-get install \
     libqt5opengl5-dev \
     libcgal-dev \
     libceres-dev
-
 ```
 
 ```
@@ -77,4 +44,31 @@ cmake .. -GNinja
 ninja
 sudo ninja install
 ``` 
+### Download Ardupilot
+```
+git clone https://github.com/ArduPilot/ardupilot.git
+cd ardupilot
+git submodule update --init --recursive
+git config --global url.https://.insteadOf git://
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+
+. ~/.profile
+```
+
+In your bash.rc
+```
+export PATH=$PATH:$HOME/ardupilot/Tools/autotest
+export PATH=/usr/lib/ccache:$PATH
+```
+
+Reload bash.rc
+```
+. ~/.bashrc
+```
+
+### Install Ardupilot ROS noetic
+```
+source ~/ardupilot/Tools/environment_install/install-ROS-ubuntu.sh
+```
+
 
