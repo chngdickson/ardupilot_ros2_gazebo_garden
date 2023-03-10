@@ -64,6 +64,7 @@ link
 ```https://gazebosim.org/docs/garden/install_ubuntu_src```
 Export GZ Version, used for Gazebo version the ROS Would like to compile against
 ```
+source /opt/ros/humble/setup.bash
 export GZ_VERSION=garden
 ```
 
@@ -98,7 +99,6 @@ wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collec
 vcs import < collection-garden.yaml
 ```
 
-
 More dependencies
 ```
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
@@ -110,7 +110,7 @@ sudo apt -y install \
 ```
 
 
-Install ros_gz
+### Link Gazebo with ros_gz
 ```
 cd ~/gazebo
 sudo rosdep init
