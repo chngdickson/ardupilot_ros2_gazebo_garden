@@ -66,7 +66,7 @@ Listener Terminal 2
 ros2 run demo_nodes_py listener
 ```
 
-## 2. Install Gazebo Garden from source 
+## 2. Install Gazebo Garden from binary 
 link
 ```https://gazebosim.org/docs/garden/install_ubuntu_src```
 Export GZ Version, used for Gazebo version the ROS Would like to compile against
