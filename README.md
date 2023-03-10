@@ -48,6 +48,7 @@ Install packages
 sudo apt update
 sudo apt upgrade -y
 sudo apt install ros-humble-desktop
+sudo apt-get install ros-humble-teleop-twist-keyboard
 ```
 
 Go to bash.rc file in your ubuntu Home, add this line
@@ -94,7 +95,7 @@ sudo apt-get install gz-garden
 cd
 mkdir -p ~/ros_gz/src
 cd ~/ros_gz/src
-git clone https://github.com/gazebosim/ros_gz.git -b ros2
+git clone https://github.com/gazebosim/ros_gz.git -b humble
 ```
 
 Install dependencies
@@ -109,12 +110,31 @@ colcon build
 
 Install additional bridges
 ```
-sudo apt-get install ros-${ROS_DISTRO}-ros-gz
-sudo apt-get install ros-humble-ros-ign-bridge
+# sudo apt-get install ros-${ROS_DISTRO}-ros-gz
+# sudo apt-get install ros-humble-ros-ign-bridge
 ```
 
 In the bash.rc file add these 2 things
 ```
 source /opt/ros/humble/setup.bash
 source ~/ros_gz/install/setup.bash
+```
+
+# Test
+[https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites)
+```
+gz gazebo -v 4 -r visualize_lidar.sdf
+```
+```
+ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/Twist "linear: { x: 0.1 }"
+```
+
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/model/vehicle_blue/cmd_vel
+```
+```
+ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+```
+```
+rviz2
 ```
