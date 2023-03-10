@@ -105,7 +105,9 @@ colcon build
 ```
 
 Install additional bridges
-```sudo apt-get install ros-humble-ros-ign-bridge
+```
+sudo apt-get install ros-${ROS_DISTRO}-ros-gz
+sudo apt-get install ros-humble-ros-ign-bridge
 ```
 
 In the bash.rc file add these 2 things
