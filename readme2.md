@@ -1,4 +1,5 @@
 ## 1 Install ROS2 Humble/Rolling in Ubuntu 22.04
+From Binary
 Set Locale
 ```
 locale  # check for UTF-8
@@ -129,4 +130,37 @@ colcon build --cmake-args ' -DBUILD_TESTING=OFF' ' -DCMAKE_BUILD_TYPE=Debug' --m
 In the file bash.rc in Home, add this line
 ```
 source ~/gazebo/install/setup.bash
+```
+
+### Link Ros to Gazebo-Garden
+```
+sudo bash -c 'wget https://raw.githubusercontent.com/osrf/osrf-rosdep/master/gz/00-gazebo.list -O /etc/ros/rosdep/sources.list.d/00-gazebo.list'
+rosdep update
+```
+
+check that resolve works
+```
+rosdep resolve gz-garden
+```
+
+```
+export GZ_VERSION=garden
+```
+
+compile ros_gz
+```
+cd ~/gazebo/src
+git clone https://github.com/gazebosim/ros_gz.git -b ros2
+```
+
+Install ros_gz
+```
+cd ~/gazebo
+rosdep install -r --from-paths src -i -y --rosdistro humble
+```
+
+Build the workspace
+```
+cd ~/gazebo
+colcon build
 ```
