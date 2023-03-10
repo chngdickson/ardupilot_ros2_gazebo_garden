@@ -1,4 +1,7 @@
 ## 1 Install ROS2 Humble/Rolling in Ubuntu 22.04
+RMB to setup
+https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
+
 ROS From Binary
 https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html 
 Gazebo from Source
