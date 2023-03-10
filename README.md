@@ -9,7 +9,7 @@ https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
 Gazebo from Source
 https://gazebosim.org/docs/garden/install_ubuntu_src
 
-Ros_Gz Gazebo
+Ros_Gz Linking Gazebo and ROS
 https://github.com/gazebosim/ros_gz/tree/humble#from-source
 
 ## 1. Install ROS2 Humble
