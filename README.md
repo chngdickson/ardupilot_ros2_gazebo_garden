@@ -126,6 +126,10 @@ Install dependencies
 ```
 cd ~/ros_gz
 sudo rosdep init
+sudo bash -c 'wget https://raw.githubusercontent.com/osrf/osrf-rosdep/master/gz/00-gazebo.list -O /etc/ros/rosdep/sources.list.d/00-gazebo.list'
+rosdep update
+# check that resolve works
+rosdep resolve gz-garden
 ```
 ```
 rosdep install -r --from-paths src -i -y --rosdistro humble
@@ -135,7 +139,7 @@ colcon build
 Install additional bridges
 ```
 # sudo apt-get install ros-${ROS_DISTRO}-ros-gz
-sudo apt-get install ros-humble-ros-ign-bridge -y
+# sudo apt-get install ros-humble-ros-ign-bridge -y
 ```
 
 In the bash.rc file add these 2 things
