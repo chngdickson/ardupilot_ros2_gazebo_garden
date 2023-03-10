@@ -94,7 +94,6 @@ cd ~/gazebo/src
 GET ROS SOURCES and DOWNLOAD
 ```
 git clone https://github.com/gazebosim/ros_gz.git -b ros2
-
 ```
 Get Gazebo sources and download
 ```
