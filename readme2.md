@@ -1,4 +1,4 @@
-## Install ROS2 Humble/Rolling
+## 1 Install ROS2 Humble/Rolling in Ubuntu 22.04
 Set Locale
 ```
 locale  # check for UTF-8
@@ -79,3 +79,25 @@ Listener
 ```
 ros2 run demo_nodes_py listener
 ```
+
+## Install Gazebo Garden from source 
+link
+```https://gazebosim.org/docs/garden/install_ubuntu_src```
+
+vcstool and colcon 
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros2-latest.list'
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install python3-vcstool python3-colcon-common-extensions
+```
+
+Add git
+```
+sudo apt-get install git
+```
+
+```
+mkdir - p ~/gazebo/src
+
+
