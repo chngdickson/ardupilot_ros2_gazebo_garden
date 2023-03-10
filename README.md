@@ -9,7 +9,7 @@ https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
 Gazebo from Source
 https://github.com/gazebosim/ros_gz/tree/humble#from-source
 
-## Install ROS2 Humble
+## 1. Install ROS2 Humble
 Set Locale
 ```
 locale  # check for UTF-8
@@ -59,7 +59,7 @@ Listener Terminal 2
 ros2 run demo_nodes_py listener
 ```
 
-## Install Gazebo Garden from source 
+## 2. Install Gazebo Garden from source 
 link
 ```https://gazebosim.org/docs/garden/install_ubuntu_src```
 Export GZ Version, used for Gazebo version the ROS Would like to compile against
@@ -110,7 +110,7 @@ sudo apt -y install \
 ```
 
 
-### Link Gazebo with ros_gz
+### 3. Link Gazebo with ros_gz
 ```
 cd ~/gazebo
 sudo rosdep init
