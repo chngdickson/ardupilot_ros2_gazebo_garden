@@ -3,6 +3,9 @@
 RMB to setup
 [https://docs.nvidia.com/cuda/cuda-installation-guide-linux/](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/)
 
+Install from here
+https://gazebosim.org/docs/garden/ros2_integration
+
 ROS From Binary
 [https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html ](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html )
 
