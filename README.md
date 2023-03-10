@@ -23,8 +23,7 @@ sudo reboot
 ```
 
 ## Install ROS2 Humble Binary + Gazebo Garden from source in Ubuntu 22.04
-Install from here
-https://gazebosim.org/docs/garden/ros2_integration
+Endgoal = Simulation test in https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites
 
 ROS From Binary
 [https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html ](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html )
