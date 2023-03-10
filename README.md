@@ -88,6 +88,12 @@ ros2 run demo_nodes_py listener
 
 ## 2. Install Gazebo Garden from binary 
 link
+Install additional bridges
+```
+sudo apt-get install ros-${ROS_DISTRO}-ros-gz
+sudo apt-get install ros-humble-ros-ign-bridge -y
+```
+
 ```https://gazebosim.org/docs/garden/install_ubuntu_src```
 Export GZ Version, used for Gazebo version the ROS Would like to compile against
 Put these in your bash.rc file in Home
@@ -136,11 +142,6 @@ rosdep install -r --from-paths src -i -y --rosdistro humble
 colcon build
 ```
 
-Install additional bridges
-```
-# sudo apt-get install ros-${ROS_DISTRO}-ros-gz
-# sudo apt-get install ros-humble-ros-ign-bridge -y
-```
 
 In the bash.rc file add these 2 things
 ```
