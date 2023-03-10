@@ -70,3 +70,22 @@ In bash.rc file, put in these lines
 export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
 export GZ_SIM_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
 ```
+
+# Usage
+### 1. Iris Quad-copter
+Run Gazebo
+```
+gz sim -v4 -r iris_runway.sdf
+```
+
+Run Ardupilot SITL
+```
+sim_vehicle.py -v ArduCopter -f gazebo-iris --model JSON --map --console
+```
+
+Arm and takeoff
+```
+STABILIZE> mode guided
+GUIDED> arm throttle
+GUIDED> takeoff 5
+```
