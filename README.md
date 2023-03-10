@@ -1,11 +1,15 @@
-## 1 Install ROS2 Humble/Rolling in Ubuntu 22.04
+## Install ROS2 Humble Binary + Gazebo Garden from source in Ubuntu 22.04
+
 RMB to setup
 https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
 
 ROS From Binary
 https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html 
+
 Gazebo from Source
 https://github.com/gazebosim/ros_gz/tree/humble#from-source
+
+## Install ROS2 Humble
 Set Locale
 ```
 locale  # check for UTF-8
@@ -28,61 +32,29 @@ Add Ros2 GPG Key
 ```
 sudo apt update && sudo apt install curl
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+```
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
 
 Install packages
 ```
-sudo apt update && sudo apt install -y \
-  python3-flake8-docstrings \
-  python3-pip \
-  python3-pytest-cov \
-  ros-dev-tools
-sudo apt install -y \
-   python3-flake8-blind-except \
-   python3-flake8-builtins \
-   python3-flake8-class-newline \
-   python3-flake8-comprehensions \
-   python3-flake8-deprecated \
-   python3-flake8-import-order \
-   python3-flake8-quotes \
-   python3-pytest-repeat \
-   python3-pytest-rerunfailures
-```
-
-
-Create workspace and clone all repos
-```
-mkdir -p ~/ros2_humble/src
-cd ~/ros2_humble
-vcs import --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos src
-```
-
-Install dependencies with Rosdep
-```
-sudo apt upgrade
-sudo rosdep init
-rosdep update
-rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
-```
-
-Build the installed files
-```
-cd ~/ros2_humble/
-colcon build --symlink-install
+sudo apt update
+sudo apt upgrade -y
+sudo apt install ros-humble-desktop
 ```
 
 Go to bash.rc file in your ubuntu Home, add this line
 ```
-source ~/ros2_humble/install/local_setup.bash
+source /opt/ros/humble/setup.bash
 ```
 
-Test examples
-Talker
+Test examples Open New terminal
+Talker Terminal 1
 ``` 
 ros2 run demo_nodes_cpp talker
 ```
-Listener
+Listener Terminal 2
 ```
 ros2 run demo_nodes_py listener
 ```
@@ -90,9 +62,14 @@ ros2 run demo_nodes_py listener
 ## Install Gazebo Garden from source 
 link
 ```https://gazebosim.org/docs/garden/install_ubuntu_src```
+Export GZ Version, used for Gazebo version the ROS Would like to compile against
+```
+export GZ_VERSION=garden
+```
 
 vcstool and colcon 
 ```
+sudo apt install python3-pip wget lsb-release gnupg curl
 sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros2-latest.list'
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt-get update
@@ -110,11 +87,17 @@ mkdir -p ~/gazebo/src
 cd ~/gazebo/src
 ```
 
-Get sources and download
+GET ROS SOURCES and DOWNLOAD
+```
+git clone https://github.com/gazebosim/ros_gz.git -b ros2
+
+```
+Get Gazebo sources and download
 ```
 wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
 vcs import < collection-garden.yaml
 ```
+
 
 More dependencies
 ```
@@ -126,42 +109,11 @@ sudo apt -y install \
   $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/gz\|sdf/d' | tr '\n' ' ')
 ```
 
-Building the Gazebo Libraries
-```
-cd ~/gazebo/
-colcon graph
-colcon build --cmake-args ' -DBUILD_TESTING=OFF' ' -DCMAKE_BUILD_TYPE=Debug' --merge-install
-```
-
-In the file bash.rc in Home, add this line
-```
-source ~/gazebo/install/setup.bash
-```
-
-### Link Ros to Gazebo-Garden
-```
-sudo bash -c 'wget https://raw.githubusercontent.com/osrf/osrf-rosdep/master/gz/00-gazebo.list -O /etc/ros/rosdep/sources.list.d/00-gazebo.list'
-rosdep update
-```
-
-check that resolve works
-```
-rosdep resolve gz-garden
-```
-
-```
-export GZ_VERSION=garden
-```
-
-compile ros_gz
-```
-cd ~/gazebo/src
-git clone https://github.com/gazebosim/ros_gz.git -b ros2
-```
 
 Install ros_gz
 ```
 cd ~/gazebo
+sudo rosdep init
 rosdep install -r --from-paths src -i -y --rosdistro humble
 ```
 
@@ -169,4 +121,9 @@ Build the workspace
 ```
 cd ~/gazebo
 colcon build
+```
+
+Source the workspace in bash.rc
+```
+source ~/gazebo/install/setup.bash
 ```
