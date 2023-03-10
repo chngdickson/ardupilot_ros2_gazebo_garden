@@ -47,8 +47,9 @@ Install packages
 ```
 sudo apt update
 sudo apt upgrade -y
-sudo apt install ros-humble-desktop
+sudo apt install ros-humble-desktop -y
 sudo apt-get install ros-humble-teleop-twist-keyboard
+sudo apt install ros-dev-tools -y
 ```
 
 Go to bash.rc file in your ubuntu Home, add this line
