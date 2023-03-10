@@ -103,3 +103,13 @@ sudo rosdep init
 rosdep install -r --from-paths src -i -y --rosdistro humble
 colcon build
 ```
+
+Install additional bridges
+```sudo apt-get install ros-humble-ros-ign-bridge
+```
+
+In the bash.rc file add these 2 things
+```
+source /opt/ros/humble/setup.bash
+source ~/ros_gz/install/setup.bash
+```
