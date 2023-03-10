@@ -92,6 +92,10 @@ sudo apt-get install gz-garden
 
 ## 3. Install ros_gz to link gazebo and ros
 ```
+sudo apt install git
+```
+
+```
 cd
 mkdir -p ~/ros_gz/src
 cd ~/ros_gz/src
