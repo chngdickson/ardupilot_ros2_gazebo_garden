@@ -1,3 +1,11 @@
+Install locations
+
+Ardupilot
+[https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux](https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux)
+
+Ardupilot_gazebo plugin
+[https://github.com/ArduPilot/ardupilot_gazebo](https://github.com/ArduPilot/ardupilot_gazebo)
+
 ## 1. Install Ardupilot
 
 ```
@@ -42,8 +50,23 @@ export PATH="$PATH:$HOME/.local/bin"
 ```
 
 
-## Plugin to connect Ardupilot Gazebo Installation
+## 2. Plugin to connect Ardupilot Gazebo Installation
 ```
 sudo apt update
 sudo apt install libgz-sim7-dev rapidjson-dev
+```
+
+```
+cd
+git clone https://github.com/ArduPilot/ardupilot_gazebo
+cd ardupilot_gazebo
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
+make -j4
+```
+
+In bash.rc file, put in these lines
+```
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
 ```
