@@ -21,7 +21,39 @@ sudo apt-get -y install cuda
 sudo apt-get -y install nvidia-gds
 sudo reboot
 ```
+Dockerfile
+```
+FROM osrf/ros:humble-desktop
 
+RUN apt-get update
+RUN apt-get install kakoune wget gnupg apt-utils -y
+RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+RUN apt-get update
+
+RUN apt-get install gz-sim7-cli libgz-transport12-dev libgz-math7-dev libgz-cmake3-dev libignition-cmake2-dev libgz-sim7-dev -y
+
+RUN useradd --create-home --shell /bin/bash ros2
+
+USER ros2
+WORKDIR /home/ros2
+RUN rosdep update
+RUN mkdir -p /home/ros2/ws/src/
+RUN cd /home/ros2/ws/src/ && git clone --depth 1 -b humble https://github.com/gazebosim/ros_gz.git 
+
+USER root
+WORKDIR /home/ros2/ws
+ENV GZ_VERSION=garden
+RUN rosdep install -r --from-paths src -i -y --rosdistro humble
+
+RUN echo "source /opt/ros/humble/setup.bash" >> /home/ros2/.bashrc
+WORKDIR /home/ros2/ws
+RUN bash -c "source /opt/ros/humble/setup.bash && colcon build"
+
+RUN apt-get install gz-garden -y
+USER ros2
+RUN echo "source /home/ros2/ws/install/setup.bash" >> /home/ros2/.bashrc
+```
 ## Install ROS2 Humble Binary + Gazebo Garden from source in Ubuntu 22.04
 Endgoal = Simulation test in https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites
 
