@@ -51,6 +51,7 @@ export PATH="$PATH:$HOME/.local/bin"
 
 
 ## 2. Plugin to connect Ardupilot Gazebo Installation
+close old terminal and open new terminal
 ```
 sudo apt update
 sudo apt install rapidjson-dev
