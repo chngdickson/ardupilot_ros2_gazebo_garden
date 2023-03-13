@@ -87,28 +87,8 @@ ros2 run demo_nodes_py listener
 ```
 
 ## 2. Install Gazebo Garden from binary 
-link
-Install additional bridges
-```
-sudo apt-get install ros-${ROS_DISTRO}-ros-gz
-sudo apt-get install ros-humble-ros-ign-bridge -y
-```
 
-```https://gazebosim.org/docs/garden/install_ubuntu_src```
-Export GZ Version, used for Gazebo version the ROS Would like to compile against
-Put these in your bash.rc file in Home
-```
-source /opt/ros/humble/setup.bash
-export GZ_VERSION=garden
-```
-
-install necessary tools
-```
-sudo apt-get update
-sudo apt-get install lsb-release wget gnupg
-```
-
-install gazebo Garden
+install gazebo Garden n link to ros_gz bridge
 ```
 sudo apt-get update
 sudo apt-get install kakoune wget gnupg apt-utils -y
@@ -129,24 +109,16 @@ rosdep install -r --from-paths src -i -y --rosdistro humble
 source /opt/ros/humble/setup.bash && colcon build
 sudo apt-get install gz-garden -y
 
-in bash.rc
+```
+
+in bash.rc add these lines.
+```
 source ~/ros2/install/setup.bash
 ```
 
-## 3. Install ros_gz to link gazebo and ros
-```
-sudo apt install git
-```
 
-```
-cd
-mkdir -p ~/ros_gz/src
-cd ~/ros_gz/src
-git clone https://github.com/gazebosim/ros_gz.git -b humble
-```
-
-
-# Test
+# Test using ros and gazebogarden
+[https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge)
 
 ```
 ros2 run ros_gz_bridge parameter_bridge /chatter@std_msgs/msg/String@ignition.msgs.StringMsg
@@ -155,12 +127,3 @@ ros2 run ros_gz_bridge parameter_bridge /chatter@std_msgs/msg/String@ignition.ms
 gz topic -e -t /chatter
 ```
 
-```
-ros2 topic pub /chatter std_msgs/msg/String "data: 'Hi'" --once
-```
-```
-ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
-```
-```
-rviz2
-```
