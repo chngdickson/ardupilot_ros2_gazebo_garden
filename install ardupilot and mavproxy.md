@@ -53,7 +53,7 @@ export PATH="$PATH:$HOME/.local/bin"
 ## 2. Plugin to connect Ardupilot Gazebo Installation
 ```
 sudo apt update
-sudo apt install libgz-sim7-dev rapidjson-dev
+sudo apt install rapidjson-dev
 ```
 
 ```
