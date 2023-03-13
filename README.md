@@ -21,39 +21,7 @@ sudo apt-get -y install cuda
 sudo apt-get -y install nvidia-gds
 sudo reboot
 ```
-Dockerfile
-```
-FROM osrf/ros:humble-desktop
 
-RUN apt-get update
-RUN apt-get install kakoune wget gnupg apt-utils -y
-RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-RUN apt-get update
-
-RUN apt-get install gz-sim7-cli libgz-transport12-dev libgz-math7-dev libgz-cmake3-dev libignition-cmake2-dev libgz-sim7-dev -y
-
-RUN useradd --create-home --shell /bin/bash ros2
-
-USER ros2
-WORKDIR /home/ros2
-RUN rosdep update
-RUN mkdir -p /home/ros2/ws/src/
-RUN cd /home/ros2/ws/src/ && git clone --depth 1 -b humble https://github.com/gazebosim/ros_gz.git 
-
-USER root
-WORKDIR /home/ros2/ws
-ENV GZ_VERSION=garden
-RUN rosdep install -r --from-paths src -i -y --rosdistro humble
-
-RUN echo "source /opt/ros/humble/setup.bash" >> /home/ros2/.bashrc
-WORKDIR /home/ros2/ws
-RUN bash -c "source /opt/ros/humble/setup.bash && colcon build"
-
-RUN apt-get install gz-garden -y
-USER ros2
-RUN echo "source /home/ros2/ws/install/setup.bash" >> /home/ros2/.bashrc
-```
 ## Install ROS2 Humble Binary + Gazebo Garden from source in Ubuntu 22.04
 Endgoal = Simulation test in https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites
 
@@ -142,10 +110,27 @@ sudo apt-get install lsb-release wget gnupg
 
 install gazebo Garden
 ```
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo apt-get update
+sudo apt-get install kakoune wget gnupg apt-utils -y
+wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
+
+sudo apt-get install gz-sim7-cli libgz-transport12-dev libgz-math7-dev libgz-cmake3-dev libignition-cmake2-dev libgz-sim7-dev -y
+
+mkdir -p ros2 && cd ros2
+sudo rosdep init
+rosdep update
+mkdir -p ~/ros2/src && cd ~/ros2/src 
+git clone --depth 1 -b humble https://github.com/gazebosim/ros_gz.git 
+export GZ_VERSION=garden
+cd ~/ros2
+rosdep install -r --from-paths src -i -y --rosdistro humble
+source /opt/ros/humble/setup.bash && colcon build
 sudo apt-get install gz-garden -y
+
+in bash.rc
+source ~/ros2/install/setup.bash
 ```
 
 ## 3. Install ros_gz to link gazebo and ros
@@ -160,38 +145,18 @@ cd ~/ros_gz/src
 git clone https://github.com/gazebosim/ros_gz.git -b humble
 ```
 
-Install dependencies
-```
-cd ~/ros_gz
-sudo rosdep init
-sudo bash -c 'wget https://raw.githubusercontent.com/osrf/osrf-rosdep/master/gz/00-gazebo.list -O /etc/ros/rosdep/sources.list.d/00-gazebo.list'
-rosdep update
-# check that resolve works
-rosdep resolve gz-garden
-```
-```
-rosdep install -r --from-paths src -i -y --rosdistro humble
-colcon build
-```
-
-
-In the bash.rc file add these 2 things
-```
-source /opt/ros/humble/setup.bash
-source ~/ros_gz/install/setup.bash
-```
 
 # Test
-[https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites](https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Gazebo.html#prerequisites)
+
 ```
-gz gazebo -v 4 -r visualize_lidar.sdf
+ros2 run ros_gz_bridge parameter_bridge /chatter@std_msgs/msg/String@ignition.msgs.StringMsg
 ```
 ```
-ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/Twist "linear: { x: 0.1 }"
+gz topic -e -t /chatter
 ```
 
 ```
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/model/vehicle_blue/cmd_vel
+ros2 topic pub /chatter std_msgs/msg/String "data: 'Hi'" --once
 ```
 ```
 ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
