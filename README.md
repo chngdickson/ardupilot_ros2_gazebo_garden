@@ -98,13 +98,13 @@ sudo apt-get update
 
 sudo apt-get install gz-sim7-cli libgz-transport12-dev libgz-math7-dev libgz-cmake3-dev libignition-cmake2-dev libgz-sim7-dev -y
 
-mkdir -p ros2 && cd ros2
+mkdir -p ros_gz && cd ros_gz
 sudo rosdep init
 rosdep update
-mkdir -p ~/ros2/src && cd ~/ros2/src 
+mkdir -p ~/ros_gz/src && cd ~/ros_gz/src 
 git clone --depth 1 -b humble https://github.com/gazebosim/ros_gz.git 
 export GZ_VERSION=garden
-cd ~/ros2
+cd ~/ros_gz
 rosdep install -r --from-paths src -i -y --rosdistro humble
 source /opt/ros/humble/setup.bash && colcon build
 sudo apt-get install gz-garden -y
