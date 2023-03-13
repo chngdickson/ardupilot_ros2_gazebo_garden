@@ -1,7 +1,5 @@
 ```
 sudo apt-get install libasio-dev
+sudo apt-get install ros-humble-mavros
 ```
-```
-mkdir -p mav_ws/src && cd mav_ws/src
-git clone https://github.com/mavlink/mavros -b ros2
-```
+
