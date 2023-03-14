@@ -22,3 +22,9 @@ gz sim -v4 -r iris_runway.sdf
 ```
 ros2 launch node.launch
 ```
+Now in ardupilot type these
+```
+STABILIZE> mode guided
+GUIDED> arm throttle
+GUIDED> takeoff 5
+```
