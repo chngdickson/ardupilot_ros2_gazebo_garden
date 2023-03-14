@@ -76,7 +76,7 @@ Go to bash.rc file in your ubuntu Home, add this line
 source /opt/ros/humble/setup.bash
 ```
 
-Test examples Open New terminal
+### 1.1 Test examples Open New terminal
 Talker Terminal 1
 ``` 
 ros2 run demo_nodes_cpp talker
