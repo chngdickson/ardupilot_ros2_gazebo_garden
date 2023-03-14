@@ -113,7 +113,7 @@ sudo apt-get install gz-garden -y
 
 in bash.rc add these lines.
 ```
-source ~/ros2/install/setup.bash
+source ~/ros_gz/install/setup.bash
 ```
 
 
