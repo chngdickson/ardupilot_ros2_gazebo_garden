@@ -127,4 +127,7 @@ ros2 run ros_gz_bridge parameter_bridge /chatter@std_msgs/msg/String@ignition.ms
 ```
 gz topic -e -t /chatter
 ```
+```
+ros2 topic pub /chatter std_msgs/msg/String "data: 'Hi'" --once
+```
 
