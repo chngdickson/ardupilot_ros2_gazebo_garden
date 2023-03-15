@@ -1,6 +1,7 @@
 ## Setup cuda 
 RMB to setup
 [https://docs.nvidia.com/cuda/cuda-installation-guide-linux/](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/)
+https://dgpu-docs.intel.com/installation-guides/ubuntu/ubuntu-jammy-arc.html 
 ## Setup Cuda
 Remove cuda
 
