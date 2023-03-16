@@ -1,1 +1,31 @@
-<mxfile host="app.diagrams.net" modified="2023-03-16T04:11:02.838Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="iFsQ2d36o28anrGXuCZi" version="21.0.6" type="github"><diagram name="Page-1" id="SRzr92lmIdbnVQ3M3BMy">1VbBcpswEP0aju4ghHFzbG3HPbSX+lD71FFgC8oIlgoRwF9fEYRBIfakM3GcnGCfdqXdt281cugyrTeS5ckPjEA4nhvVDl05nkeIT/WnRZoOCfybDoglj4zTAGz5AQzoGrTkERSWo0IUiuc2GGKWQagsjEmJle32B4V9as5imADbkIkp+otHKunQz95iwL8Bj5P+ZBKY+lLWO5tKioRFWI0gunboUiKq7i+tlyBa8npeurjbE6vHxCRk6iUB5awhu7u/h41PfDHb3+5W3u9ZT3Ohmr5iiDQBxkSpEowxY2I9oF8lllkE7bautgaf74i5BokG70GpxnSTlQo1lKhUmFWdsWx2bfyneW/ux2ur2mzeWY2xulzbBE9yYKACSxnCmcI9oyUmY1Bn/OixU1rigCnofHScBMEUf7DzYEZr8dFvaIf+MR35j+6YJB+YKM1JS0zzUoGcdM3uSZVwBducPVJQ6cm0+TfbglRQn2dyWrkJoL2szVzTwNjVMCWk90lGE9L7vTpZ/ntSsvt2SqYvVLJ3TSXTiZK/yKjMudC333uTsje/tpRvriLlmquRkrW1H60MOm6NZizq3djY27NwefkHH+EiDyby37AD3KHe7CewNrxCqV8mT9teVDwVLIM3mQPPtedg8cwYLJ4ZAzK/1ByQCW0hS0GyM1cGeSWqTrfxDH8WfRe8RbQ5vBsf10avb7r+Bw==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-03-16T04:13:52.563Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="QR-kmu_Jj_qoLeja8Wqd" version="21.0.6" type="github">
+  <diagram name="Page-1" id="SRzr92lmIdbnVQ3M3BMy">
+    <mxGraphModel dx="2000" dy="1135" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u-y1XbqzG414l-YFXD2_-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="u-y1XbqzG414l-YFXD2_-2" target="u-y1XbqzG414l-YFXD2_-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u-y1XbqzG414l-YFXD2_-2" value="Computer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u-y1XbqzG414l-YFXD2_-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="u-y1XbqzG414l-YFXD2_-3" target="u-y1XbqzG414l-YFXD2_-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u-y1XbqzG414l-YFXD2_-3" value="Ardupilot" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u-y1XbqzG414l-YFXD2_-6" value="Gazebo/Real world" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="310" width="170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="u-y1XbqzG414l-YFXD2_-1" value="camera" style="rounded=1;whiteSpace=wrap;html=1;" parent="u-y1XbqzG414l-YFXD2_-6" vertex="1">
+          <mxGeometry x="20" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6szvUEqwh5Zv-YxJbquh-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="u-y1XbqzG414l-YFXD2_-1" target="u-y1XbqzG414l-YFXD2_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
