@@ -14,13 +14,6 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
-# Install Python modules
-# ament_python_install_package(${PROJECT_NAME})
-
-# Install Python executables
-# install(PROGRAMS
-#   scripts/lift_controller.py
-# )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

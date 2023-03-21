@@ -1,2 +1,2 @@
-prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/@PROJECT_NAME@/model
-prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/@PROJECT_NAME@/world
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/@PROJECT_NAME@/models
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;share/@PROJECT_NAME@/worlds

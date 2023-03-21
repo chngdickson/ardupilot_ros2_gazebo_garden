@@ -5,5 +5,12 @@
         "/home/ds/ros_gz/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/ds/Documents/GitHub/ardupilot_ros2_gazebo_garden/install/tutorial_2/lib/python3.10/site-packages",
+        "/home/ds/ros_gz/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+        "/home/ds/ros_gz/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ]
 }
