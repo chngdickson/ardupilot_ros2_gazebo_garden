@@ -14,7 +14,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    # pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
+    pkg_ros_gz_sim_demos = get_package_share_directory('ros_gz_sim_demos')
     pth_gazebo_ros = get_package_share_directory('ros_gz_sim')
 
     gz_sim = IncludeLaunchDescription(
@@ -25,8 +25,17 @@ def generate_launch_description():
            'gz_args': '-v4 -r came_world.sdf'
         }.items(),
     )
-
+    # RViz
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        arguments=['-d', os.path.join(pkg_ros_gz_sim_demos, 'rviz', 'camera.rviz')],
+        condition=IfCondition(LaunchConfiguration('rviz'))
+    )
 
     return LaunchDescription([
-        gz_sim
+        DeclareLaunchArgument('rviz', default_value='true',
+                              description='Open RViz.'),
+        gz_sim,
+        rviz
     ])

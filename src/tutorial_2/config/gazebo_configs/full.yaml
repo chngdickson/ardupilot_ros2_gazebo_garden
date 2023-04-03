@@ -1,0 +1,4 @@
+- ros_topic_name: "chatter_both_ros"
+  gz_topic_name: "chatter_both_gz"
+  ros_type_name: "std_msgs/msg/String"
+  gz_type_name: "ignition.msgs.StringMsg"
