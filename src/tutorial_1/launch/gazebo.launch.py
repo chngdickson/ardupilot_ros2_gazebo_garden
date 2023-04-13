@@ -17,7 +17,7 @@ def generate_launch_description():
 	"""
 	# Gazebo Ros pth
 	pth_gazebo_ros = get_package_share_directory('ros_gz_sim') 
-	pth_this_pkg = get_package_share_directory("tutorial_2")
+	pth_this_pkg = get_package_share_directory("tutorial_1")
  
 	# Gazebo
 	gz_sim = IncludeLaunchDescription(

@@ -1,5 +1,5 @@
 <package format="3">
-	<name>tutorial_2</name>
+	<name>tutorial_1</name>
 	<version>0.0.0</version>
 	<description>Ardupilot Gazebo and ROS2.</description>
 	<maintainer email="chngdickson@gmail.com">rhys</maintainer>

@@ -16,7 +16,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-  pth_my_world_ros = get_package_share_directory('tutorial_2')
+  pth_my_world_ros = get_package_share_directory('tutorial_1')
   pth_mavros_configs = os.path.join(pth_my_world_ros,"config","mavros_configs")
   param1 = os.path.join(pth_mavros_configs,"apm_pluginlists.yaml")
   param2 = os.path.join(pth_mavros_configs,"apm_config.yaml")
