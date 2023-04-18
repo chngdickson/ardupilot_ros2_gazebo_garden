@@ -29,8 +29,8 @@ def generate_launch_description():
     parameters=[
       param2,
       {
-        "fcu_url":"udp://:14550@",
-        "gcs_url":"",
+        "fcu_url":"udp://:14551@",
+        "gcs_url":"udp://:14550",
         "target_system_id":1,
         "target_component_id":1,
         "fcu_protocol":"v2.0",
