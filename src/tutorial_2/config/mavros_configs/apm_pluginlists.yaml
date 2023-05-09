@@ -1,17 +1,77 @@
-plugin_blacklist:
-# common
-- actuator_control
-- ftp
-- safety_area
-- hil
-# extras
-- altitude
-- debug_value
-- image_pub
-- px4flow
-- vibration
-- vision_speed_estimate
-- wheel_odometry
 
-plugin_whitelist: []
-#- 'sys_*'
+mavros:
+  ros__parameters:
+    plugin_denylist:
+      # common
+      - "mavros/actuator_control"
+      - "mavros/altitude"
+      - "mavros/ftp"
+      # extras
+      - "mavros_extras/debug_value"
+      - "mavros_extras/hil"
+      - "mavros_extras/vibration"
+      - "mavros_extras/vision_pose"
+      - "mavros_extras/wheel_odometry"
+    # plugin_allowlist: 
+    #   - "mavros/sys_*"
+
+
+### plugin list ###
+# mavros/actuator_control
+# mavros_extras/adsb
+# mavros/altitude
+# mavros_extras/cam_imu_sync
+# mavros_extras/camera
+# mavros/command
+# mavros_extras/companion_process_status
+# mavros_extras/debug_value
+# mavros_extras/distance_sensor
+# mavros_extras/esc_status
+# mavros_extras/esc_telemetry
+# mavros_extras/fake_gps
+# mavros/ftp
+# mavros/geofence
+# mavros/global_position
+# mavros_extras/gps_input
+# mavros_extras/gps_rtk
+# mavros_extras/gps_status
+# mavros_extras/hil
+# mavros/home_position
+# mavros/imu
+# mavros_extras/landing_target
+# mavros/gps_rtk
+# mavros/local_position
+# mavros_extras/log_transfer
+# mavros_extras/mag_calibration_status
+# mavros/manual_control
+# mavros_extras/mocap_pose_estimate
+# mavros_extras/mount_control
+# mavros/nav_controller_output
+# mavros_extras/obstacle_distance
+# mavros_extras/odometry
+# mavros_extras/onboard_computer_status
+# mavros/param
+# mavros_extras/play_tune
+# mavros_extras/px4flow
+# mavros/rallypoint
+# mavros_extras/rangefinder
+# mavros/rc_io
+# mavros/setpoint_accel
+# mavros/setpoint_attitude
+# mavros/setpoint_position
+# mavros/setpoint_raw
+# mavros/setpoint_trajectory
+# mavros/setpoint_velocity
+# mavros/sys_status
+# mavros/sys_time
+# mavros_extras/terrain
+# mavros_extras/tdr_radio
+# mavros_extras/trajectory
+# mavros_extras/tunnel
+# mavros_extras/vfr_hud
+# mavros_extras/vibration
+# mavros_extras/vision_pose
+# mavros_extras/vision_speed
+# mavros/waypoint
+# mavros_extras/wheel_odomotry
+# mavros/wind_estimation

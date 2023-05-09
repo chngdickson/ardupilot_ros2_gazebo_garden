@@ -8,13 +8,21 @@
     startup_px4_usb_quirk: false
 
 # --- system plugins ---
-
+mavros_node:
+  ros__parameters:
+    fcu_url: "udp://:14550@"
+    gcs_url: "udp://:115200@"
+    tgt_system: 1
+    tgt_component: 1
+    heartbeat_rate: 1.0
+    publish_sim_time: false
+# --- system plugins ---
 # sys_status & sys_time connection options
 /mavros/conn:
   ros__parameters:
-    heartbeat_rate: 1.0    # send heartbeat rate in Hertz
+    heartbeat_rate: 0.0    # send heartbeat rate in Hertz
     heartbeat_mav_type: "ONBOARD_CONTROLLER"
-    timeout: 10.0          # heartbeat timeout in seconds
+    timeout: 60.0          # heartbeat timeout in seconds
     timesync_rate: 10.0    # TIMESYNC rate in Hertz (feature disabled if 0.0)
     system_time_rate: 1.0  # send system time to FCU rate in Hertz (disabled if 0.0)
 
@@ -31,6 +39,7 @@
     time_ref_source: "fcu"  # time_reference source
     timesync_mode: MAVLINK
     timesync_avg_alpha: 0.6 # timesync averaging factor
+    publish_sim_time: false
 
 # --- mavros plugins (alphabetical order) ---
 

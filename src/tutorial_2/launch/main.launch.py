@@ -43,5 +43,5 @@ def generate_launch_description():
   return LaunchDescription([
       cam_bridge_launch_file,
       gazebo_launch_file,
-      mavros_node
+    #   mavros_node
   ])
