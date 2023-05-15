@@ -1,0 +1,5202 @@
+<?xml version='1.0'?>
+<sdf version='1.10'>
+  <model name='tree_0'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-2.8462299999999998 13.2361 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+    <link name='tree_link_1'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-11.1181 18.057200000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+
+  <!-- <model name='tree_2'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-2.6127500000000001 22.3476 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_3'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-18.500499999999999 23.165900000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_4'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.031799999999997 12.793799999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_5'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-40.714399999999998 17.9024 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_6'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-48.174700000000001 13.313499999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_7'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.776800000000001 22.049099999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_8'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-39.8917 26.870200000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_9'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-47.129600000000003 21.971699999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_10'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-24.459800000000001 26.715399999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_11'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-18.422699999999999 31.160599999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_12'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-8.5053400000000003 27.898599999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_13'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>12.363300000000001 23.8294 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_14'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>5.0587299999999997 27.389900000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_15'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-2.7795200000000002 31.0169 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_16'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>5.9592900000000002 35.893300000000004 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_17'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>13.8531 31.0169 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_18'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>19.823599999999999 27.0914 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_19'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-10.1508 35.826999999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_20'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-18.800699999999999 39.088999999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_21'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-11.562799999999999 -6.1591399999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_22'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-11.562799999999999 -14.231299999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_23'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-18.422699999999999 -10.0846 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_24'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-18.456 -18.8202 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_25'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-25.882899999999999 -14.496600000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_26'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-27.072600000000001 -22.6462 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_27'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-34.265999999999998 -19.671700000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_28'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-27.0503 -7.6740399999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_29'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.965800000000002 -9.7860700000000005 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_30'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-41.092500000000001 -14.861499999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_31'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.3765 -27.522600000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_32'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-42.204300000000003 -23.376000000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_33'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-49.564500000000002 -18.786999999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_34'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-41.314799999999998 -6.2033699999999996 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_35'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-49.142000000000003 -9.8302899999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_36'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-48.730600000000003 -1.8245100000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_37'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-56.0685 -5.8273999999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_38'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-55.445900000000002 -14.341799999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_39'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.854599999999998 -35.451000000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_40'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-41.426000000000002 -32.266399999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_41'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-49.619999999999997 -27.235099999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_42'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-56.891300000000001 -23.420200000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_43'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-63.940100000000001 -18.599 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_44'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-63.4176 -9.5648999999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_45'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-71.956299999999999 -15.082700000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_46'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-71.611599999999996 -5.8273900000000003 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_47'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-80.039100000000005 -1.6144000000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_48'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-85.898399999999995 -14.7841 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_49'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-79.894599999999997 -18.8644 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_50'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-71.544899999999998 -23.154800000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_51'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-63.673299999999998 -27.235099999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_52'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-56.5244 -32.000999999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_53'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-49.097499999999997 -36.556800000000003 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_54'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-42.015300000000003 -40.979900000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_55'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.632199999999997 -46.2986 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_56'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-62.483699999999999 13.866400000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_57'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-55.290300000000002 27.677399999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_58'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-48.552700000000002 32.166899999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_59'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-39.825000000000003 35.351500000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_60'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-31.920000000000002 29.944299999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_61'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-33.443199999999997 40.183700000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_62'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-25.393699999999999 34.898099999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_63'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-25.471499999999999 44.418799999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_64'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-18.344799999999999 48.863999999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_65'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-11.451599999999999 43.490000000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_66'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-3.4799600000000002 39.310099999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_67'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>5.4701000000000004 44.894300000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_68'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>11.9964 38.978400000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_69'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>20.5351 34.754399999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_70'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>27.795200000000001 31.868300000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_71'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>27.016999999999999 40.349600000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_72'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>20.3461 44.451999999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_73'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>12.885899999999999 48.123100000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_74'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>5.2143800000000002 53.010599999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_75'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-2.27921 48.454900000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_76'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-2.9574099999999999 57.632800000000003 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_77'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-10.5177 53.2318 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_78'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-19.8903 57.677 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_79'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-25.026800000000001 54.0501 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_80'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-32.8095 48.421700000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_81'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-47.385300000000001 40.382800000000003 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_82'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-55.445900000000002 36.424100000000003 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_83'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-62.450299999999999 31.7577 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_84'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-62.895000000000003 24.603400000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_85'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-71.055700000000002 18.720700000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_86'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-78.627099999999999 13.2029 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_87'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-77.959999999999994 22.834199999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_88'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-70.611000000000004 26.936599999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_89'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-77.481999999999999 31.569800000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_90'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-70.421999999999997 36.490400000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_91'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-63.2286 40.272199999999998 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_92'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-55.479300000000002 43.899099999999997 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_93'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-48.096800000000002 49.748600000000003 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_94'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-79.4054 -10.3058 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_95'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-87.087999999999994 -6.0817100000000002 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_96'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-94.314800000000005 -1.4927600000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_97'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-94.014600000000002 -10.681699999999999 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_98'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-95.2821 -19.1187 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model>
+  <model name='tree_99'>
+    <link name='tree_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.16666700000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16666700000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.16666700000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='tree_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>100000</mu>
+              <mu2>100000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tree_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature/model://palm_tree_young_mature/meshes/young_mature.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <pose>0 0 0 0 0 0</pose>
+      <enable_wind>false</enable_wind>
+    </link>
+    <static>true</static>
+    <pose>-86.643299999999996 -22.900500000000001 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+  </model> -->
+</sdf>

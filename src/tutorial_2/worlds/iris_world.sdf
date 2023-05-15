@@ -3,12 +3,19 @@
   <world name="iris_runway2">
     <!-- Models to include -->
     <include>
-      <uri>model://runway</uri>
+      <uri>model://grasspatch</uri>
     </include>
+    <include>
+      <name>grass_patch_2</name>
+      <uri>model://grasspatch</uri>
+      <pose>-15 -15 0 0 0 0</pose>
+    </include>
+
 
     <include>
       <uri>model://iris_ardu_camera</uri>
     </include>
+
     <!-- END: Models to include -->
     
     <physics name="1ms" type="ignore">
@@ -175,5 +182,512 @@
         </gz-gui>
       </plugin>
     </gui>
+
+
+
+    <!--ALL DA FRIGGIN TREES-->
+    <include>
+      <name>tree_0</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-2.8462299999999998 13.2361 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <name>tree_1</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-11.1181 18.057200000000002 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>tree_2</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-2.6127500000000001 22.3476 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <name>tree_3</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-18.500499999999999 23.165900000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_4</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.031799999999997 12.793799999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_5</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-40.714399999999998 17.9024 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_6</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-48.174700000000001 13.313499999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_7</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.776800000000001 22.049099999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_8</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-39.8917 26.870200000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_9</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-47.129600000000003 21.971699999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_10</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-24.459800000000001 26.715399999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_11</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-18.422699999999999 31.160599999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_12</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-8.5053400000000003 27.898599999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_13</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>12.363300000000001 23.8294 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_14</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>5.0587299999999997 27.389900000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_15</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-2.7795200000000002 31.0169 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_16</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>5.9592900000000002 35.893300000000004 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_17</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>13.8531 31.0169 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_18</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>19.823599999999999 27.0914 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_19</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-10.1508 35.826999999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_20</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-18.800699999999999 39.088999999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_21</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-11.562799999999999 -6.1591399999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_22</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-11.562799999999999 -14.231299999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_23</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-18.422699999999999 -10.0846 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_24</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-18.456 -18.8202 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_25</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-25.882899999999999 -14.496600000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_26</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-27.072600000000001 -22.6462 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_27</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-34.265999999999998 -19.671700000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_28</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-27.0503 -7.6740399999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_29</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.965800000000002 -9.7860700000000005 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_30</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-41.092500000000001 -14.861499999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_31</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.3765 -27.522600000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_32</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-42.204300000000003 -23.376000000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_33</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-49.564500000000002 -18.786999999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_34</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-41.314799999999998 -6.2033699999999996 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_35</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-49.142000000000003 -9.8302899999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_36</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-48.730600000000003 -1.8245100000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_37</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-56.0685 -5.8273999999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_38</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-55.445900000000002 -14.341799999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_39</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.854599999999998 -35.451000000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_40</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-41.426000000000002 -32.266399999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_41</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-49.619999999999997 -27.235099999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_42</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-56.891300000000001 -23.420200000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_43</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-63.940100000000001 -18.599 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_44</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-63.4176 -9.5648999999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_45</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-71.956299999999999 -15.082700000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_46</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-71.611599999999996 -5.8273900000000003 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_47</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-80.039100000000005 -1.6144000000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_48</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-85.898399999999995 -14.7841 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_49</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-79.894599999999997 -18.8644 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_50</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-71.544899999999998 -23.154800000000002 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_51</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-63.673299999999998 -27.235099999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_52</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-56.5244 -32.000999999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_53</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-49.097499999999997 -36.556800000000003 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_54</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-42.015300000000003 -40.979900000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_55</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.632199999999997 -46.2986 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_56</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-62.483699999999999 13.866400000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_57</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-55.290300000000002 27.677399999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_58</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-48.552700000000002 32.166899999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_59</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-39.825000000000003 35.351500000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_60</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-31.920000000000002 29.944299999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_61</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-33.443199999999997 40.183700000000002 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_62</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-25.393699999999999 34.898099999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_63</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-25.471499999999999 44.418799999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_64</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-18.344799999999999 48.863999999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_65</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-11.451599999999999 43.490000000000002 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_66</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-3.4799600000000002 39.310099999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_67</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>5.4701000000000004 44.894300000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_68</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>11.9964 38.978400000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_69</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>20.5351 34.754399999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_70</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>27.795200000000001 31.868300000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_71</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>27.016999999999999 40.349600000000002 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_72</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>20.3461 44.451999999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_73</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>12.885899999999999 48.123100000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_74</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>5.2143800000000002 53.010599999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_75</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-2.27921 48.454900000000002 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_76</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-2.9574099999999999 57.632800000000003 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_77</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-10.5177 53.2318 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_78</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-19.8903 57.677 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_79</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-25.026800000000001 54.0501 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_80</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-32.8095 48.421700000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_81</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-47.385300000000001 40.382800000000003 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_82</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-55.445900000000002 36.424100000000003 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_83</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-62.450299999999999 31.7577 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_84</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-62.895000000000003 24.603400000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_85</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-71.055700000000002 18.720700000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_86</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-78.627099999999999 13.2029 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_87</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-77.959999999999994 22.834199999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_88</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-70.611000000000004 26.936599999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_89</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-77.481999999999999 31.569800000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_90</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-70.421999999999997 36.490400000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_91</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-63.2286 40.272199999999998 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_92</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-55.479300000000002 43.899099999999997 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_93</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-48.096800000000002 49.748600000000003 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_94</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-79.4054 -10.3058 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_95</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-87.087999999999994 -6.0817100000000002 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_96</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-94.314800000000005 -1.4927600000000001 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_97</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-94.014600000000002 -10.681699999999999 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_98</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-95.2821 -19.1187 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_99</name>
+      <uri>model://palm_tree_young_mature</uri>
+      <pose>-86.643299999999996 -22.900500000000001 0 0 0 0</pose>
+    </include>
   </world>
 </sdf>
