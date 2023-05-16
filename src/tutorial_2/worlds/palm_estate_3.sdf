@@ -1,0 +1,810 @@
+<?xml version="1.0" ?>
+<sdf version='1.10'>
+  <world name='iris_runway2'>
+    <physics name='1ms' type='ignore'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0.800000012 0.800000012 0.800000012 1</background>
+      <sky/>
+      <shadows>true</shadows>
+    </scene>
+    <gui fullscreen='false'>
+      <plugin name='3D View' filename='MinimalScene'>
+        <gz-gui>
+          <title>3D View</title>
+          <property type='bool' key='showTitleBar'>false</property>
+          <property type='string' key='state'>docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.4 0.4 0.4</ambient_light>
+        <background_color>0.8 0.8 0.8</background_color>
+        <camera_pose>-6 0 6 0 0.5 0</camera_pose>
+      </plugin>
+      <plugin name='Entity context menu' filename='EntityContextMenuPlugin'>
+        <gz-gui>
+          <property key='state' type='string'>floating</property>
+          <property key='width' type='double'>5</property>
+          <property key='height' type='double'>5</property>
+          <property key='showTitleBar' type='bool'>false</property>
+        </gz-gui>
+      </plugin>
+      <plugin name='Scene Manager' filename='GzSceneManager'>
+        <gz-gui>
+          <property key='resizable' type='bool'>false</property>
+          <property key='width' type='double'>5</property>
+          <property key='height' type='double'>5</property>
+          <property key='state' type='string'>floating</property>
+          <property key='showTitleBar' type='bool'>false</property>
+        </gz-gui>
+      </plugin>
+      <plugin name='Interactive view control' filename='InteractiveViewControl'>
+        <gz-gui>
+          <property key='resizable' type='bool'>false</property>
+          <property key='width' type='double'>5</property>
+          <property key='height' type='double'>5</property>
+          <property key='state' type='string'>floating</property>
+          <property key='showTitleBar' type='bool'>false</property>
+        </gz-gui>
+      </plugin>
+      <plugin name='Camera Tracking' filename='CameraTracking'>
+        <gz-gui>
+          <property key='resizable' type='bool'>false</property>
+          <property key='width' type='double'>5</property>
+          <property key='height' type='double'>5</property>
+          <property key='state' type='string'>floating</property>
+          <property key='showTitleBar' type='bool'>false</property>
+        </gz-gui>
+      </plugin>
+      <plugin name='World control' filename='WorldControl'>
+        <gz-gui>
+          <title>World control</title>
+          <property type='bool' key='showTitleBar'>false</property>
+          <property type='bool' key='resizable'>false</property>
+          <property type='double' key='height'>72</property>
+          <property type='double' key='width'>121</property>
+          <property type='double' key='z'>1</property>
+          <property type='string' key='state'>floating</property>
+          <anchors target='3D View'>
+            <line own='left' target='left'/>
+            <line own='bottom' target='bottom'/>
+          </anchors>
+        </gz-gui>
+        <play_pause>true</play_pause>
+        <step>true</step>
+        <start_paused>true</start_paused>
+        <use_event>true</use_event>
+      </plugin>
+      <plugin name='World stats' filename='WorldStats'>
+        <gz-gui>
+          <title>World stats</title>
+          <property type='bool' key='showTitleBar'>false</property>
+          <property type='bool' key='resizable'>false</property>
+          <property type='double' key='height'>110</property>
+          <property type='double' key='width'>290</property>
+          <property type='double' key='z'>1</property>
+          <property type='string' key='state'>floating</property>
+          <anchors target='3D View'>
+            <line own='right' target='right'/>
+            <line own='bottom' target='bottom'/>
+          </anchors>
+        </gz-gui>
+        <sim_time>true</sim_time>
+        <real_time>true</real_time>
+        <real_time_factor>true</real_time_factor>
+        <iterations>true</iterations>
+      </plugin>
+      <plugin name='Image Display' filename='ImageDisplay'>
+        <gz-gui>
+          <property key='state' type='string'>docked</property>
+        </gz-gui>
+        <topic>camera</topic>
+      </plugin>
+      <plugin name='Component inspector' filename='ComponentInspector'>
+        <gz-gui>
+          <property type='string' key='state'>docked</property>
+        </gz-gui>
+      </plugin>
+      <plugin name='Entity tree' filename='EntityTree'>
+        <gz-gui>
+          <property type='string' key='state'>docked</property>
+        </gz-gui>
+      </plugin>
+    </gui>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <include>
+      <uri>model://iris_ardu_camera</uri>
+    </include>
+    <include>
+      <uri>model://custom_ground_plane</uri>
+      <pose>0 0 -0.001 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_1</name>
+      <pose>60 -60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_2</name>
+      <pose>30 -60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_3</name>
+      <pose>0 -60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_4</name>
+      <pose>-30 -60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_5</name>
+      <pose>-60 -60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_6</name>
+      <pose>-90 -60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_7</name>
+      <pose>60 -30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_8</name>
+      <pose>30 -30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_9</name>
+      <pose>0 -30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_10</name>
+      <pose>-30 -30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_11</name>
+      <pose>-60 -30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_12</name>
+      <pose>-90 -30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_13</name>
+      <pose>60 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_14</name>
+      <pose>30 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_15</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_16</name>
+      <pose>-30 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_17</name>
+      <pose>-60 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_18</name>
+      <pose>-90 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_19</name>
+      <pose>60 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_20</name>
+      <pose>30 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_21</name>
+      <pose>0 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_22</name>
+      <pose>-30 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_23</name>
+      <pose>-60 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_24</name>
+      <pose>-90 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_25</name>
+      <pose>60 60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_26</name>
+      <pose>30 60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_27</name>
+      <pose>0 60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_28</name>
+      <pose>-30 60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_29</name>
+      <pose>-60 60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/install/tutorial_2/share/tutorial_2/models/grasspatch</uri>
+      <name>grass_patch_30</name>
+      <pose>-90 60 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_0</name>
+      <pose>13.419263181120829 4.498008350459207 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_1</name>
+      <pose>19.047635900213265 12.002718143977159 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_2</name>
+      <pose>23.404371437970234 2.7747042794529984 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_3</name>
+      <pose>24.642834932801925 -11.033961527011408 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_4</name>
+      <pose>28.258704343785741 -5.0301936529146438 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_5</name>
+      <pose>36.430348964618261 -6.008585017545208 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_6</name>
+      <pose>34.451019893497929 10.190468422660182 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_7</name>
+      <pose>31.476497703851891 16.550014878461862 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_8</name>
+      <pose>23.802450386404178 19.996623298977052 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_9</name>
+      <pose>27.462550931289879 -19.561534887124335 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_10</name>
+      <pose>31.244287660651416 -26.955062700312912 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_11</name>
+      <pose>42.589493453397523 -25.220638753429821 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_12</name>
+      <pose>48.549595406303204 -16.103806805781609 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_13</name>
+      <pose>49.810176162573256 -29.034140885861643 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_14</name>
+      <pose>52.685178127903967 -21.184771556066117 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_15</name>
+      <pose>57.727491171274956 -15.536783284761261 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_16</name>
+      <pose>53.713543167885156 -6.4088352920625953 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_17</name>
+      <pose>48.184690119730888 2.474515408494125 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_18</name>
+      <pose>43.15343440723408 10.779726324849008 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_19</name>
+      <pose>44.049108187970447 -4.1185099197410766 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_20</name>
+      <pose>38.409678924874484 -13.946899174443638 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_21</name>
+      <pose>40.090450607214215 17.217098980108055 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_22</name>
+      <pose>34.749580159279041 25.811381345603209 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_23</name>
+      <pose>28.048610939281065 28.112826937976656 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_24</name>
+      <pose>12.634170362270334 33.349450468927728 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_25</name>
+      <pose>12.943791247925736 49.159373529405045 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_26</name>
+      <pose>26.832266712705437 40.720739223184459 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_27</name>
+      <pose>18.583217959688298 39.942475637969295 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_28</name>
+      <pose>31.786117127823704 34.728088333173368 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_29</name>
+      <pose>35.855354385456593 39.931352129933714 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_30</name>
+      <pose>32.162083342967094 47.74736896477112 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_31</name>
+      <pose>26.998137986591278 55.730158216832862 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_32</name>
+      <pose>14.259665253400097 64.835878927615042 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_33</name>
+      <pose>39.913530394631685 32.871365577438773 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_34</name>
+      <pose>43.78372547190196 24.14366650486285 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_35</name>
+      <pose>49.323635018783662 17.65070309316603 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_36</name>
+      <pose>53.016907864920498 9.1008945174240043 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_37</name>
+      <pose>57.252008915698504 3.3306078190505146 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_38</name>
+      <pose>60.945282676003551 -3.7293763903393464 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_39</name>
+      <pose>66.861155752824615 -11.334146152521308 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_40</name>
+      <pose>62.062112466177098 -19.895072122036822 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_41</name>
+      <pose>57.439992806249009 -27.333072059773212 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_42</name>
+      <pose>-6.0533561593667153 11.791476780929823 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_43</name>
+      <pose>-13.207691750454549 11.869304085531699 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_44</name>
+      <pose>-8.6408584806851074 18.62910316684372 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_45</name>
+      <pose>-18.294235551961531 18.718049316151294 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_46</name>
+      <pose>-15.021153241573543 26.689720695214728 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_47</name>
+      <pose>-6.2302774803646024 25.311075557258967 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_48</name>
+      <pose>-22.075969365516091 27.223390613083463 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_49</name>
+      <pose>-19.311541084444514 34.839283198387051 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_50</name>
+      <pose>-15.187014798304123 41.688026658742295 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_51</name>
+      <pose>-10.797107784204865 34.494620030919513 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_52</name>
+      <pose>-5.9317153750084737 40.887521071193277 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_53</name>
+      <pose>-11.095661027829649 49.137146632172396 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_54</name>
+      <pose>-2.0946882632541248 49.926527598385661 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_55</name>
+      <pose>-6.8605562606530848 57.442359078703404 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_56</name>
+      <pose>-10.045172254730842 64.246632463445678 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_57</name>
+      <pose>-16.02738640912737 72.852038645654957 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_58</name>
+      <pose>-14.335565800837852 56.375025640313133 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_59</name>
+      <pose>-19.101439959282622 49.137149722646384 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_60</name>
+      <pose>-23.5134668766926 42.633067257373334 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_61</name>
+      <pose>-26.399530424465777 34.872639416155501 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_62</name>
+      <pose>-36.240888459608279 34.939350674865764 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_63</name>
+      <pose>-32.072131187542666 42.299527323794933 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_64</name>
+      <pose>-27.416834152987303 50.382379341626134 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_65</name>
+      <pose>-23.402884097770414 57.22000469302148 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_66</name>
+      <pose>-20.218261098100101 65.04714024581682 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_67</name>
+      <pose>-45.308207232252101 34.461275100644897 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_68</name>
+      <pose>-40.863006918208875 43.122269208284138 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_69</name>
+      <pose>-36.152421960957824 49.559643864702394 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_70</name>
+      <pose>-32.824049340274662 57.220008928376274 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_71</name>
+      <pose>-28.389906105061868 64.05763414283085 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_72</name>
+      <pose>-22.838933744975709 71.751351382944378 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_73</name>
+      <pose>-19.234117132030033 79.422832983890672 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_74</name>
+      <pose>-6.473528749133262 72.71861608400495 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_75</name>
+      <pose>-2.8687118786279382 80.690285121818022 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_76</name>
+      <pose>-5.7879423406396384 86.549520953789937 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_77</name>
+      <pose>-11.195165256672029 79.144875680297005 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_78</name>
+      <pose>-15.629300622601962 86.260457256901034 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_79</name>
+      <pose>-23.259117070535364 86.972020352668551 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_80</name>
+      <pose>-27.69326215941479 79.144885938790253 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_81</name>
+      <pose>-41.758675313786952 57.675854806326534 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_82</name>
+      <pose>-45.120221304485447 49.42623022244139 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_83</name>
+      <pose>-49.653882753804282 43.589232172961871 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_84</name>
+      <pose>-32.005772175526083 71.006444297337637 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_85</name>
+      <pose>-63.675059530054455 19.084953161340952 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_86</name>
+      <pose>-58.511109816615708 25.811400258042291 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_87</name>
+      <pose>-54.851006819988392 35.85103960020907 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_88</name>
+      <pose>-32.945667590297177 86.471712766831303 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_89</name>
+      <pose>-35.997599053785045 79.256072039270592 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_90</name>
+      <pose>-41.338475266730306 71.884778940937338 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_91</name>
+      <pose>-45.905311573642308 64.669138157203619 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_92</name>
+      <pose>-49.720223624370341 57.142189857902487 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_93</name>
+      <pose>-54.298116496171531 50.682578552925769 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_94</name>
+      <pose>-57.96927810329467 41.465678758411912 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_95</name>
+      <pose>-62.701978299691376 34.094382639875825 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_96</name>
+      <pose>-66.726984973463985 26.400661031524397 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_97</name>
+      <pose>-72.277954383392753 19.829866941311032 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_98</name>
+      <pose>-75.871709681902374 12.013845190042293 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_99</name>
+      <pose>-78.912579213193666 4.3645944440627549 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/ds/Documents/gh/ardugzros2/src/tutorial_2/models/palm_tree_young_mature</uri>
+      <name>tree_100</name>
+      <pose>-84.795278620726251 -3.2068300584770766 0 0 0 0</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.800000012 0.800000012 0.800000012 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

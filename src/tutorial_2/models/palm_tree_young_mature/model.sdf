@@ -15,7 +15,7 @@
         </inertia>
       </inertial>
 
-    <collision name='tree_collision'>
+    <!-- <collision name='tree_collision'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -37,7 +37,7 @@
             </ode>
           </friction>
         </surface>
-      </collision>
+      </collision> -->
       <visual name="tree_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>

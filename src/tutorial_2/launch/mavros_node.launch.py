@@ -44,6 +44,12 @@ def generate_launch_description():
       ]
   )
   
+  # helper_node = Node(
+  #   package='tutorial_2',
+  #   executable='helper.py',
+  #   output="screen"
+  # )
+  
 # ros2 run mavros mavros_node --ros-args --params-file src/tutorial_2/config/mavros_configs/apm_config.yaml
   
   
@@ -55,5 +61,6 @@ def generate_launch_description():
         
   return LaunchDescription([
     mavros_node,
+    # helper_node,
     RegisterEventHandler(event_handler=OnProcessExit(on_exit=on_exit_restart))
   ])

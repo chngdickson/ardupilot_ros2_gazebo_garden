@@ -522,7 +522,7 @@ def run_executor(executor, node):
 def main(args=None):
   rclpy.init(args=args)
   drone = Ardu_Ros_Connect()
-  executor = MultiThreadedExecutor(num_threads=4)
+  executor = MultiThreadedExecutor(num_threads=2)
   thread = threading.Thread(target=run_executor, args=(executor, drone), daemon=True)
   thread.start()
   drone.wait4connect()

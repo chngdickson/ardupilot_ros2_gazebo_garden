@@ -35,7 +35,8 @@ def generate_launch_description():
       os.path.join(pth_my_world_ros, 'launch', 'mavros_node.launch.py')
       )
   )
-  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
+#   cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
+  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--console","--custom-location","2.868877,101.411648,0,0"]
   subprocess.Popen(cmd)
   
   
