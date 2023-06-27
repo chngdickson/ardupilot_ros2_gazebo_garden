@@ -21,27 +21,16 @@ def generate_launch_description():
     cam_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        # topic@ros_type@gazebo_type
         arguments=[
-            '/rgb_camera/Image@sensor_msgs/msg/Image@gz.msgs.Image',
-            '/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
+            '/rgb_camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
+            '/rgb_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
             ],
+        # ros_mapping, remapped
         remappings=[
-            ('/rgb_camera/Image','/camera')
+            ('/rgb_camera/image','/rgb_camera/image'),
+            ('/rgb_camera/camera_info','/rgb_camera/camera_info')
         ],
-        output='screen'
-    )
-
-    tf_bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=[
-            f'/world/default/model/{modelname}/joint_state@'
-            'sensor_msgs/msg/JointState@gz.msgs.Model',
-            f'/model/{modelname}/pose@gz.msgs.Pose'
-            'tf2_msgs/msg/TFMessage@gz.msgs.Pose_V'],
-        remappings=[
-            (f'/world/default/model/{modelname}/joint_state', '/joint_states')
-            ],
         output='screen'
     )
     
@@ -58,6 +47,5 @@ def generate_launch_description():
 
     return LaunchDescription([
         cam_bridge,
-        tf_bridge, 
         joint_ctrl_bridge
     ])

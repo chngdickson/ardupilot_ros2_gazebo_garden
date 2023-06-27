@@ -16,17 +16,29 @@ def generate_launch_description():
 
   pth_my_world_ros = get_package_share_directory('tutorial_2')
 
-  # Camera launch
+  # # Camera launch
   cam_bridge_launch_file = IncludeLaunchDescription(
       PythonLaunchDescriptionSource(
       os.path.join(pth_my_world_ros, 'launch', 'camera_bridge.launch.py')
       )
   )
-
+  # RGBD camera launch
+  cam_rgbd_bridge_launch_file = IncludeLaunchDescription(
+      PythonLaunchDescriptionSource(
+      os.path.join(pth_my_world_ros, 'launch', 'camera_rgbd_bridge.launch.py')
+      )
+  )
   # Bridge launch
   gazebo_launch_file = IncludeLaunchDescription(
       PythonLaunchDescriptionSource(
       os.path.join(pth_my_world_ros, 'launch', 'gazebo.launch.py')
+      )
+  )
+  
+  # tf bridge
+  tf_bridge_launch_file = IncludeLaunchDescription(
+      PythonLaunchDescriptionSource(
+      os.path.join(pth_my_world_ros, 'launch', 'joints_bridge.launch.py')
       )
   )
   
@@ -35,14 +47,16 @@ def generate_launch_description():
       os.path.join(pth_my_world_ros, 'launch', 'mavros_node.launch.py')
       )
   )
-#   cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
-  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--console","--custom-location","2.868877,101.411648,0,0"]
+  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
+  # # cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--console","--custom-location","2.868877,101.411648,0,0"]
   subprocess.Popen(cmd)
   
   
   # return LaunchDescription([first_launch_file, second_launch_file])
   return LaunchDescription([
-      cam_bridge_launch_file,
-      gazebo_launch_file,
+    gazebo_launch_file,
+    # cam_bridge_launch_file,
+    cam_rgbd_bridge_launch_file,
+    tf_bridge_launch_file
     #   mavros_node
   ])

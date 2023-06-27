@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 
@@ -49,6 +50,9 @@ def main(args=None):
   lift_controller = MinimalPublisher()
   print("I am printing The callback")
   rclpy.spin(lift_controller)
+  lift_controller.destroy_node()
+  rclpy.shutdown()
+  return
   
 if __name__ == '__main__':
   main()

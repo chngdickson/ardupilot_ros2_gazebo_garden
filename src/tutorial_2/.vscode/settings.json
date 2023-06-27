@@ -1,0 +1,18 @@
+{
+  "python.autoComplete.extraPaths": [
+    "/home/ds/ros2_ws/install/mavros/local/lib/python3.10/dist-packages",
+    "/home/ds/ros2_ws/install/mavros_msgs/local/lib/python3.10/dist-packages",
+    "/home/ds/ros_gz/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+    "/home/ds/ros_gz/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/home/ds/ros2_ws/install/mavros/local/lib/python3.10/dist-packages",
+    "/home/ds/ros2_ws/install/mavros_msgs/local/lib/python3.10/dist-packages",
+    "/home/ds/ros_gz/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+    "/home/ds/ros_gz/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages"
+  ]
+}

@@ -8,8 +8,8 @@ from rclpy.client import Client, SrvTypeRequest
 
 from mavros_msgs.msg import State, GlobalPositionTarget, WaypointList, Waypoint
 
-from helper import *
-from geo_helper import *
+from scripts.helper_funcs.ardu_helper import *
+from scripts.helper_funcs.geo_helper import *
 import copy
 import os
 import pickle

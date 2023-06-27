@@ -88,11 +88,11 @@
 
 
     <include>
-      <uri>model://rgb_camera</uri>
+      <uri>model://rgbd_cam</uri>
     </include>
     <joint name='tilt_joint' type='revolute'>
       <parent>roll_link</parent>
-      <child>rgb_camera::base_link</child>
+      <child>rgbd_cam::base_link</child>
       <axis>
         <xyz>1 0 0</xyz>
         <dynamics>
