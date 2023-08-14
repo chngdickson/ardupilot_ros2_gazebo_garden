@@ -28,17 +28,17 @@ def generate_launch_description():
 					'gz_args': '-v4 -r iris_world.sdf'
 			}.items(),
 	)
-	# RViz
-	rviz = Node(
-			package='rviz2',
-			executable='rviz2',
-			arguments=['-d', os.path.join(pth_this_pkg, 'rviz', 'camera.rviz')],
-			condition=IfCondition(LaunchConfiguration('rviz'))
-	)
+	# # RViz
+	# rviz = Node(
+	# 		package='rviz2',
+	# 		executable='rviz2',
+	# 		arguments=['-d', os.path.join(pth_this_pkg, 'rviz', 'camera.rviz')],
+	# 		condition=IfCondition(LaunchConfiguration('rviz'))
+	# )
 
 	return LaunchDescription([
 		DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
 		gz_sim,
-		rviz
+		# rviz
 	])

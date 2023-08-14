@@ -22,9 +22,9 @@ from rclpy.client import Client, SrvTypeRequest
 import message_filters
 
 # Message types
-from mavros_msgs.msg import State, GlobalPositionTarget, WaypointList, Waypoint
+from mavros_msgs.msg import State, GlobalPositionTarget, WaypointList, Waypoint, HomePosition
 from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Pose, PoseStamped, Point, Quaternion
+from geometry_msgs.msg import Pose, PoseStamped, Point, Quaternion, TwistStamped
 from sensor_msgs.msg import NavSatFix
 from geographic_msgs.msg import GeoPoseStamped
 
@@ -65,11 +65,14 @@ class Ardu_Ros_Connect(Node):
     self.sub_local_pose = self.create_subscription(Odometry,'/mavros/global_position/local', self.cb_local_pose, qos_profile)
     self.sub_global_pose = self.create_subscription(NavSatFix,'/mavros/global_position/global', self.cb_global_pose, qos_profile)
     self.sub_waypoints = self.create_subscription(WaypointList,'/mavros/mission/waypoints',self.cb_waypoints, 10)
+    self.sub_home_pose = self.create_subscription(HomePosition,'/mavros/home_position/home',self.cb_home_pose, 10)
+    self.sub_coor_pose = self.create_subscription(Point,'/rgbd_camera/points/coordinate', self.cb_coor_pose, 10)
     
     # Publishers
     self.pub_state = self.create_publisher(State, "/mavros/state", 10)
     self.pub_local_pos = self.create_publisher(PoseStamped, "/mavros/setpoint_position/local", 10)
     self.pub_global_pos = self.create_publisher(GeoPoseStamped,"/mavros/setpoint_position/global", 10)
+    self.pub_vel = self.create_publisher(TwistStamped,"/mavros/setpoint_velocity/cmd_vel", 10)
     
     # Clients
     self.arming_client = self.create_client(CommandBool,"/mavros/cmd/arming")
@@ -80,7 +83,7 @@ class Ardu_Ros_Connect(Node):
     self._waypoint_clr_client = self.sub_node.create_client(WaypointClear,"/mavros/mission/clear")
     self.state_client = self.create_client(SetMode, "/mavros/set_mode")
     self._state_client = self.sub_node.create_client(SetMode,"/mavros/set_mode")
-    
+  
   """
   PRIVATE FUNCTIONS
   """
@@ -101,9 +104,10 @@ class Ardu_Ros_Connect(Node):
   """
   START PRE-FLIGHT INITIALIZATION
   """
-  def cb_state(self, curr_state):
+  def cb_state(self, curr_state:State):
     self.curr_state = curr_state 
-  
+    self.curr_state.armed = curr_state.armed
+    
   def cb_local_pose(self, odom_msg:Odometry):
     self.curr_pose = odom_msg
     w,x,y,z,curr_heading = self._get_curr_euler(self.curr_pose)
@@ -111,7 +115,11 @@ class Ardu_Ros_Connect(Node):
   
   def cb_global_pose(self, msg:NavSatFix):
     self.curr_global_pose = msg
-    self.curr_global_pose.altitude = abs(msg.altitude)
+    self.curr_global_pose.altitude = msg.altitude
+  
+  def cb_coor_pose(self, msg:Point):
+    self.centre_tree = msg
+    
     
   def wait4connect(self):
     self.get_logger().info("wait4connect")
@@ -163,53 +171,44 @@ class Ardu_Ros_Connect(Node):
       self.get_logger().info(f"{arm_mode} completed!  [{self.curr_state.armed}]")
       return True
   
-  def initialize_local_and_global_frame(self):    
-    # Class Internals
-    self.local_init_pose = Point()
-    self.global_init_pose = NavSatFix()
-    self.local_init_heading = 0.0
+  def cb_home_pose(self, msg:HomePosition):
+    """
+    alt = amsl
+    """
+    # self.get_logger().info(f"cb_home_pose {msg.geo.latitude}, {msg.geo.longitude}, {msg.geo.altitude}")
     
-    for i in range(30):
-      rclpy.spin_once(self, timeout_sec=0.1)
-      w,x,y,z,curr_heading = self._get_curr_euler(self.curr_pose)
-      self.local_init_heading += degrees(curr_heading)
-      self.local_init_pose.x += x
-      self.local_init_pose.y += y
-      self.local_init_pose.z += z
-      
-      cgp = self.curr_global_pose
-      lat, lon, alt= cgp.latitude, cgp.longitude, cgp.altitude
-      self.global_init_pose.latitude += lat
-      self.global_init_pose.longitude += lon
-      self.global_init_pose.altitude += alt
-      time.sleep(0.05)
-    self.local_init_heading  /= 30.0
-    self.local_init_pose.x /= 30.0
-    self.local_init_pose.y /= 30.0
-    self.local_init_pose.z /= 30.0
+    # Set Global_pose
+    self.global_init_pose.latitude = msg.geo.latitude
+    self.global_init_pose.longitude = msg.geo.longitude
+    # Specifies that alt uses WSG84
+    alt_wsg = msg.geo.altitude
+    self.global_init_pose.altitude = alt_wsg
     
-    self.global_init_pose.latitude /= 30.0
-    self.global_init_pose.longitude /= 30.0
-    self.global_init_pose.altitude /= 30.0
-    self.global_init_pose.altitude = abs(self.geo.amsl_of_latlong(self.global_init_pose.latitude, self.global_init_pose.longitude)) - abs(self.global_init_pose.altitude)
-    self.get_logger().info("Coordinate offset set" )
-    self.get_logger().info(f"The X-Axis is facing: {self.local_init_heading}")
+    # Set Local_pose
+    self.local_init_pose.x = msg.position.x
+    self.local_init_pose.y = msg.position.y
+    self.local_init_pose.z = msg.position.z
+    
+    x,y,z,w = msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w
+    self.local_init_heading = atan2((2 * (w * z + x * y)),(1 - 2 * (pow(y, 2) + pow(z, 2))))
+
 
   def takeoff(self, takeoff_alt: float, n=0):
-    self.initialize_local_and_global_frame()
+    # self.initialize_local_and_global_frame()
     takeoff_req = CommandTOL.Request()
     takeoff_req.altitude = takeoff_alt
     takeoff_req.latitude=0.0
     takeoff_req.longitude=0.0
     takeoff_req.min_pitch=0.0
     takeoff_req.yaw = 0.0
-    
+    rclpy.spin_once(self, timeout_sec=0.1)
     
     while not self.takeoff_client.wait_for_service(1.0):
       self.get_logger().info("takeoff service not available, waiting again...")
       return self.takeoff(takeoff_alt)
     
     self.get_logger().info("Sending Takeoff signal")
+    
     future = self.takeoff_client.call_async(takeoff_req)
     rclpy.spin_until_future_complete(self, future)
     
@@ -218,7 +217,8 @@ class Ardu_Ros_Connect(Node):
       self.global_init_pose.longitude,
       self.global_init_pose.altitude+takeoff_alt,
       self.local_init_heading, 
-      publish=False
+      publish=False,
+      use_alt_wsg=True
       )
     # self.set_destination_euler(self.local_init_pose.x,self.local_init_pose.y,takeoff_alt,0, publish=False)
     
@@ -243,12 +243,16 @@ class Ardu_Ros_Connect(Node):
   END PRE-FLIGHT INITIALIZATION
   """
   def returnToHome(self):
+    """
+    Uses WSG ALTitude, cause ARDUPILOT publishes altitude in WSG Format
+    """
     self.get_logger().info("GOING HOME..")
     self.go_destination_global_lla(
       self.global_init_pose.latitude,
       self.global_init_pose.longitude,
       self.curr_global_pose.altitude,
-      self.local_init_heading
+      self.local_init_heading,
+      use_alt_wsg=True
       )
     
     # land_res = CommandTOL.Response()
@@ -268,18 +272,11 @@ class Ardu_Ros_Connect(Node):
     future = self.land_client.call_async(land_req)
     rclpy.spin_until_future_complete(self, future)
     
-    self.set_destination_global_lla(
-      self.global_init_pose.latitude,
-      self.global_init_pose.longitude,
-      self.global_init_pose.altitude,
-      self.local_init_heading, 
-      publish=False
-      )
     if future.result().success:
       self.get_logger().info(f"Landing Initiated")
-      while not str(self.curr_state.mode) == "LAND" or not self.check_waypoint_reached_global(0.2):
+      while not str(self.curr_state.mode) == "LAND" or self.curr_state.armed:
         rclpy.spin_once(self, timeout_sec=0.01)
-      time.sleep(3.0) # Sleep for 3 seconds to wait prop inertia
+      # self.arm_disarm(arming=False)
       self.get_logger().info(f"Landing Completed! [{self.curr_state.mode}]")
       return None
     else:
@@ -321,11 +318,11 @@ class Ardu_Ros_Connect(Node):
       self.set_destination_euler(x, y, z, heading, True)
     return None
   
-  def go_destination_global_lla(self,lat: float, long: float, alt: float, heading: float):
-    self.set_destination_global_lla(lat, long, alt ,heading)
+  def go_destination_global_lla(self,lat: float, long: float, alt: float, heading: float, use_alt_wsg:bool=False):
+    self.set_destination_global_lla(lat, long, alt ,heading, True, use_alt_wsg)
     while not self.check_waypoint_reached_global(0.3):
       rclpy.spin_once(self, timeout_sec=0.001)
-      self.set_destination_global_lla(lat, long, alt ,heading)
+      self.set_destination_global_lla(lat, long, alt ,heading, True, use_alt_wsg)
     return None
   
   def set_destination_euler(self, x, y, z, heading, publish:bool=True):    
@@ -344,11 +341,25 @@ class Ardu_Ros_Connect(Node):
         rclpy.spin_once(self, timeout_sec=0.0001)
     return None
   
-  def set_destination_global_lla(self,lat: float, long: float, alt: float, heading: float, publish:bool=True):
+  def set_destination_global_lla(self,lat: float, long: float, alt: float, heading: float, publish:bool=True, use_alt_wsg:bool=False):
+    """
+    Takes in WSG as alt. Converts to AMSL
+    alt = AMSL
+    It assumes that all alt is in AMSL, So if there is an error, Convert to AMSL first
+    """
     lat_long_alt_msg = GeoPoseStamped()
     lat_long_alt_msg.pose.position.latitude  = lat
     lat_long_alt_msg.pose.position.longitude = long
-    lat_long_alt_msg.pose.position.altitude = alt
+
+    # Conversion
+    if use_alt_wsg:
+      alt_wsg = alt
+      alt_terrain = abs(self.geo.amsl_of_latlong(lat ,long)) 
+      alt_amsl = abs(alt_wsg + alt_terrain)
+      lat_long_alt_msg.pose.position.altitude = alt_amsl
+    else:
+      lat_long_alt_msg.pose.position.altitude = alt
+    
     lat_long_alt_msg.pose.orientation = self.set_heading(heading)
     self.lat_long_alt_msg = lat_long_alt_msg
     # print("Publishing",lat,long,alt)
@@ -382,21 +393,25 @@ class Ardu_Ros_Connect(Node):
     - Global Position for pose
     - Local Orientation for orientation due to lack of impl for global
     The reason is that the current MAVROS implemetation for y coordinate is wrong, There's a drift.
+    
+    Alt subscriber = WSG84
     """
     ref = self.lat_long_alt_msg
     cgp, ref_pos = self.curr_global_pose, ref.pose.position
-    lat, lon, alt_amsl = cgp.latitude, cgp.longitude, cgp.altitude
+    lat, lon, alt_wsg = cgp.latitude, cgp.longitude, cgp.altitude
     alt_terrain = abs(self.geo.amsl_of_latlong(lat,lon)) 
-    alt_wsg = abs(alt_amsl - alt_terrain)
+    alt_amsl = abs(alt_wsg + alt_terrain)
     
     dx, dy, dz = self.geo.lla_to_enu(
             origin_lla = [ref_pos.latitude,ref_pos.longitude,ref_pos.altitude],
-            lla = [lat,lon,alt_wsg]
+            lla = [lat,lon,alt_amsl]
             )
     # print(
-    #   f"Ori [{alt_wsg:.4f} = amsl{alt_amsl:.4f} - Ter{alt_terrain:.4f}/n\
-    #   Sub [{ref_pos.altitude:.4f}] abs[{abs(dz):.4f}]"
+    #   f"wsg [{alt_wsg:.4f} = amsl{alt_amsl:.4f} - Ter{alt_terrain:.4f}/n\
+    #   Sub [{ref_pos.altitude:.4f}] abs[{abs(dz):.4f}\
+    #     compares AMSL]"
     # )
+
     # Pos Diff based on Distance calc
     dx, dy, dz = abs(dx), abs(dy), abs(dz)
     dpos = sqrt(dx**2 + dy**2 + dz**2)
@@ -410,7 +425,7 @@ class Ardu_Ros_Connect(Node):
     if dpos < pos_tol and dHeading<head_tol:
       return True
     else:
-      # print("GLOBAL",dpos, pos_tol, pow(dx,2), pow(dy,2), pow(dz,2), "\n", dHeading)
+      # print(f"GLOBAL dpos: {dpos}, pos_tol: {pos_tol}, dx: {pow(dx,2)}, dy: {pow(dy,2)}, dz: {pow(dz,2)}, \n heading: {dHeading}")
       return False
 
   def cb_waypoints(self, msg:WaypointList):
@@ -511,6 +526,35 @@ class Ardu_Ros_Connect(Node):
     else:
       self.get_logger().error("exception while")
     
+  def state_Offboard(self):
+    em_msg = TwistStamped()
+    em_msg.twist.linear.x = 0.0
+    em_msg.twist.linear.y = 0.0
+    em_msg.twist.linear.z = 0.0
+    for i in range(100):
+      self.pub_vel.publish(em_msg)
+    name_of_srv = "setMode"
+    req = SetMode.Request()
+    # req.base_mode = int(88)
+    req.custom_mode = "GUIDED_NOGPS"
+    
+    while not self.state_client.wait_for_service(1.0):
+      self.get_logger().info(f"{name_of_srv} service not available, waiting again...")
+      return self.state_Offboard()
+    
+    self.get_logger().info(f"Sending {req.custom_mode} signal")
+    future = self.state_client.call_async(req)
+    rclpy.spin_until_future_complete(self, future, timeout_sec=3.0)
+    
+    if future.result() is not None:
+      result : SetMode.Response = future.result()
+      # print(result,"\n\n")
+      if result.mode_sent:
+        self.get_logger().info(f"{req.custom_mode} Completed")
+      return result
+    else:
+      self.get_logger().error("exception while")
+      
 def run_executor(executor, node):
   executor.add_node(node)
   try:
@@ -518,19 +562,15 @@ def run_executor(executor, node):
   finally:
     node.destroy_node()
     executor.shutdown()
-        
-def main(args=None):
-  rclpy.init(args=args)
-  drone = Ardu_Ros_Connect()
-  executor = MultiThreadedExecutor(num_threads=2)
-  thread = threading.Thread(target=run_executor, args=(executor, drone), daemon=True)
-  thread.start()
+
+
+def typical_wp(drone:Ardu_Ros_Connect):
   drone.wait4connect()
   drone.state_GUIDED()
   drone.wait4start()
   drone.arm_disarm(arming=True) # Pre-checks arm and disarm before checking global_coor
   
-  drone.initialize_local_and_global_frame()
+  # drone.initialize_local_and_global_frame()
   
   drone.await_waypoints_before_takeoff()
   wps = drone.get_waypoints()
@@ -540,7 +580,7 @@ def main(args=None):
     drone.takeoff(3.0)
     for i, wp in enumerate(wps):
       drone.go_destination_global_lla(
-        lat =wp[0],long= wp[1], alt= wp[2], heading = wp[3]
+        lat =wp[0],long= wp[1], alt= wp[2]+6, heading = wp[3]
         )
       drone.get_logger().info(f"wp [{i}] reached out of {len(wps)}")
     print("All Waypoints Completed")
@@ -548,20 +588,51 @@ def main(args=None):
     drone.returnToHome()
     drone.state_GUIDED()
     
-  """EULERS"""
-  # goals = [[0.5619, 0.2834, 3, 0], [5.3218, 0.8631, 3, -90], [5, 5, 3, 0],
-  #         [0, 5, 3, 90], [0, 0, 3, 180], [0, 0, 3, 0]]
-  # i = 0
-  # for i, wp in enumerate(goals):
-  #   drone.set_destination_euler(
-  #     x=goals[i][0], y=goals[i][1], z=goals[i][2], heading=goals[i][3]
-  #   )
-  #   # print("HELLO AM I WORKING")
-  #   while not drone.check_waypoint_reached():
-  #     rclpy.spin_once(drone, timeout_sec=0.0001)
-      
   drone.returnToHome()
   
+def go_location(drone: Ardu_Ros_Connect):
+    xyz=[]
+    for i in range(10):
+      msg = drone.centre_tree
+      xyz.append([msg.x,msg.y,msg.z])
+      rclpy.spin_once(drone)
+    xyz = np.mean(xyz,axis=0)
+    print(xyz)
+    x,y,z = xyz[0],xyz[1],xyz[2]
+    
+    lat_arr, lon_arr, alt_arr = [], [], []
+    for i in range(10):
+      lat, lon, alt = drone.curr_global_pose.latitude, drone.curr_global_pose.longitude, drone.curr_global_pose.altitude
+      lat_arr.append(lat)
+      lon_arr.append(lon)
+      alt_arr.append(alt)
+      rclpy.spin_once(drone)
+    lat, lon, alt = np.mean(lat_arr), np.mean(lon_arr), np.mean(alt_arr)
+    [to_lat,to_lon,to_alt] = enu_to_lla(x,y,z,lat,lon,alt)
+    # print("Going to location",to_lat,to_lon,alt)
+    # print("from Location,", lat,lon,alt)
+    # print("ENU",x,y,z)
+    # drone.go_destination_global_lla(to_lat,to_lon,alt,0,use_alt_wsg=True)
+    drone.state_Offboard()
+    
+def main(args=None):
+  rclpy.init(args=args)
+  drone = Ardu_Ros_Connect()
+  executor = MultiThreadedExecutor(num_threads=4)
+  thread = threading.Thread(target=run_executor, args=(executor, drone), daemon=True)
+  thread.start()
+  # typical_wp(drone)
+  
+  drone.wait4connect()
+  drone.state_GUIDED()
+  # go_location(drone)
+  # drone.state_Offboard()
+  em_msg = TwistStamped()
+  em_msg.twist.linear.x = -10.01
+  em_msg.twist.linear.y = 0.02
+  em_msg.twist.linear.z = 0.0
+  for i in range(100):
+    drone.pub_vel.publish(em_msg)
   rclpy.spin(drone)
   
 if __name__ == '__main__':

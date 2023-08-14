@@ -39,6 +39,12 @@
 
 # actuator_control
 # None
+# mavros_router:
+#   ros__parameters:
+#     fcu_urls: ["udp://:14551@"]
+#     gcs_urls: ["udpb://@"]
+#     uas_urls:
+#       - /uas1
 
 # command
 /mavros/cmd:

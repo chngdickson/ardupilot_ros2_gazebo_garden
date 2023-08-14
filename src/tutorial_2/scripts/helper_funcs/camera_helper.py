@@ -20,7 +20,7 @@ class MinimalSubscriber(Node):
     super().__init__(self.__class__.__name__) # type: ignore
     self.sub_pc2 = self.create_subscription(PointCloud2, '/rgbd_camera/points', self.sub_pc2_cb, 10)
     self.sub_cam = self.create_subscription(Image, '/rgbd_camera/image', self.sub_cam_cb, 10)
-    self.model = YOLO("yolov5s.pt")
+    self.model = YOLO("bestmodel.pt")
     
   def sub_pc2_cb(self, msg:PointCloud2):
     width, height = msg.width, msg.height
@@ -35,7 +35,7 @@ class MinimalSubscriber(Node):
     print(img_np_arr.shape)
     results = self.model(img_np_arr)
     boxes = []
-    for r in results:
+    for r in results[0]:
       boxes.append(r.boxes.xyxy.cpu().numpy())
     plt.imshow(img_np_arr)
     plt.show()
