@@ -11,7 +11,7 @@ import threading
 import asyncio
 import time
 import numpy as np
-
+from typing import Tuple
 # ROS2 essentials
 import rclpy
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
@@ -356,6 +356,7 @@ class Ardu_Ros_Connect(Node):
       alt_wsg = alt
       alt_terrain = abs(self.geo.amsl_of_latlong(lat ,long)) 
       alt_amsl = abs(alt_wsg + alt_terrain)
+      
       lat_long_alt_msg.pose.position.altitude = alt_amsl
     else:
       lat_long_alt_msg.pose.position.altitude = alt
@@ -554,7 +555,22 @@ class Ardu_Ros_Connect(Node):
       return result
     else:
       self.get_logger().error("exception while")
-      
+  
+  def add_xyz2curr_lla(self, xyz)-> list:
+    rclpy.spin_once(self)
+    lat,lon, alt = self.curr_global_pose.latitude, self.curr_global_pose.longitude, self.curr_global_pose.altitude
+    init_lat, init_lon, init_alt = self.global_init_pose.latitude, self.global_init_pose.longitude, self.global_init_pose.altitude
+    xyz_rel_to_origin = self.geo.lla_to_enu([lat, lon, alt],[init_lat, init_lon, init_alt])
+    if any(np.abs(xyz_rel_to_origin)) > 6500:
+      return self.add_xyz2curr_lla(xyz)
+    
+    # Adding xyz to current xyz_from_origin
+    x,y,z = xyz_rel_to_origin[0] + xyz[0], xyz_rel_to_origin[1] + xyz[1], xyz_rel_to_origin[2] + xyz[2]
+    # Converting back to LLa
+    lat_new, lon_new, alt_new = self.geo.enu_to_lla(x,y,z,init_lat, init_lon, init_alt)
+    print("original:",xyz_rel_to_origin,"\nnew" ,xyz)
+    return [lat_new, lon_new, alt_new]
+    
 def run_executor(executor, node):
   executor.add_node(node)
   try:
@@ -570,7 +586,6 @@ def typical_wp(drone:Ardu_Ros_Connect):
   drone.wait4start()
   drone.arm_disarm(arming=True) # Pre-checks arm and disarm before checking global_coor
   
-  # drone.initialize_local_and_global_frame()
   
   drone.await_waypoints_before_takeoff()
   wps = drone.get_waypoints()
@@ -590,43 +605,61 @@ def typical_wp(drone:Ardu_Ros_Connect):
     
   drone.returnToHome()
   
-def go_location(drone: Ardu_Ros_Connect):
-    xyz=[]
-    for i in range(10):
-      msg = drone.centre_tree
-      xyz.append([msg.x,msg.y,msg.z])
-      rclpy.spin_once(drone)
-    xyz = np.mean(xyz,axis=0)
-    print(xyz)
-    x,y,z = xyz[0],xyz[1],xyz[2]
+# def go_location(drone: Ardu_Ros_Connect):
+#     xyz=[]
+#     for i in range(10):
+#       msg = drone.centre_tree
+#       xyz.append([msg.x,msg.y,msg.z])
+#       rclpy.spin_once(drone)
+#     xyz = np.mean(xyz,axis=0)
+#     print(xyz)
+#     x,y,z = xyz[0],xyz[1],xyz[2]
     
-    lat_arr, lon_arr, alt_arr = [], [], []
-    for i in range(10):
-      lat, lon, alt = drone.curr_global_pose.latitude, drone.curr_global_pose.longitude, drone.curr_global_pose.altitude
-      lat_arr.append(lat)
-      lon_arr.append(lon)
-      alt_arr.append(alt)
-      rclpy.spin_once(drone)
-    lat, lon, alt = np.mean(lat_arr), np.mean(lon_arr), np.mean(alt_arr)
-    [to_lat,to_lon,to_alt] = enu_to_lla(x,y,z,lat,lon,alt)
-    # print("Going to location",to_lat,to_lon,alt)
-    # print("from Location,", lat,lon,alt)
-    # print("ENU",x,y,z)
-    # drone.go_destination_global_lla(to_lat,to_lon,alt,0,use_alt_wsg=True)
-    drone.state_Offboard()
-    
-def main(args=None):
-  rclpy.init(args=args)
-  drone = Ardu_Ros_Connect()
-  executor = MultiThreadedExecutor(num_threads=4)
-  thread = threading.Thread(target=run_executor, args=(executor, drone), daemon=True)
-  thread.start()
-  # typical_wp(drone)
+#     lat_arr, lon_arr, alt_arr = [], [], []
+#     for i in range(10):
+#       lat, lon, alt = drone.curr_global_pose.latitude, drone.curr_global_pose.longitude, drone.curr_global_pose.altitude
+#       lat_arr.append(lat)
+#       lon_arr.append(lon)
+#       alt_arr.append(alt)
+#       rclpy.spin_once(drone)
+#     lat, lon, alt = np.mean(lat_arr), np.mean(lon_arr), np.mean(alt_arr)
+#     [to_lat,to_lon,to_alt] = drone.geo.enu_to_lla(x,y,z,lat,lon,alt)
+#     # print("Going to location",to_lat,to_lon,alt)
+#     # print("from Location,", lat,lon,alt)
+#     # print("ENU",x,y,z)
+#     # drone.go_destination_global_lla(to_lat,to_lon,alt,0,use_alt_wsg=True)
+#     drone.state_Offboard()
+
+def test_self(drone:Ardu_Ros_Connect):
+
+  drone.await_waypoints_before_takeoff()
+  wps = drone.get_waypoints()
+
+  for _ in range(100):
+    drone.arm_disarm(arming=True) 
+    drone.takeoff(3.0)
+    for i, wp in enumerate(wps):
+      drone.go_destination_global_lla(
+        lat =wp[0],long= wp[1], alt= wp[2], heading = wp[3]
+        )
+      drone.get_logger().info(f"wp [{i}] reached out of {len(wps)}")
+    print("All Waypoints Completed")
+
+    drone.returnToHome()
+    drone.state_GUIDED()      
+  drone.returnToHome()
   
-  drone.wait4connect()
-  drone.state_GUIDED()
-  # go_location(drone)
-  # drone.state_Offboard()
+def test_external(drone:Ardu_Ros_Connect):  
+  drone.takeoff(3.0)
+  n=0
+  while n<1*10e5:
+    lat_t, lon_t, alt_t = drone.add_xyz2curr_lla([0,0,0])
+    drone.go_destination_global_lla(lat_t,lon_t,alt_t,0,use_alt_wsg=True)
+    n+=1
+  drone.returnToHome()
+  
+def test_vel(drone:Ardu_Ros_Connect):
+  drone.takeoff(3.0)
   em_msg = TwistStamped()
   em_msg.twist.linear.x = -10.01
   em_msg.twist.linear.y = 0.02
@@ -634,6 +667,19 @@ def main(args=None):
   for i in range(100):
     drone.pub_vel.publish(em_msg)
   rclpy.spin(drone)
+  
+def main(args=None):
+  rclpy.init(args=args)
+  drone = Ardu_Ros_Connect()
+  executor = MultiThreadedExecutor(num_threads=4)
+  thread = threading.Thread(target=run_executor, args=(executor, drone), daemon=True)
+  thread.start()
+  
+  drone.wait4connect()
+  drone.state_GUIDED()
+  drone.wait4start()
+  drone.arm_disarm(arming=True) 
+  test_external(drone)
   
 if __name__ == '__main__':
   main()

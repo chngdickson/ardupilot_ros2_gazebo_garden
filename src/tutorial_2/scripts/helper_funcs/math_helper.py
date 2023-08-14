@@ -4,11 +4,13 @@ import quaternion
 from transforms3d.euler import euler2quat, quat2euler
 import math
 from math import radians
+import transforms3d as tf   
 
 def list_to_quat_arr(q):
     if len(q) != 3:
         assert ValueError("Bro your list needs to have 4 Values inserted")
     return np.quaternion(q[0],q[1],q[2],q[3])
+
 def quaternion_angle_difference(q1, q2, axis):
     """
     Computes the angle difference between two quaternions relative to a given axis.
@@ -54,6 +56,19 @@ def euler_2_quat(x,y,z):
     return np.quaternion(qw,qx,qy,qz)
 
 
+def transform_coordinates(xyzrpy_a, xyzrpy_b):
+    # Inputs xyzrpy_a, xyzrpy_2
+    # Returns combination of xyzrpy 
+    i,j,k,r,p,y = xyzrpy_a
+    i2,j2,k2,r2,p2,y2 = xyzrpy_b
+    homo_a = tf.affines.compose(T=[i,j,k], R=tf.euler.euler2mat(r,p,y),Z=[1,1,1])
+    homo_b = tf.affines.compose(T=[i2,j2,k2], R=tf.euler.euler2mat(r2,p2,y2), Z=[1,1,1])
+    
+    #Combine Both
+    T,R,Z,S = tf.affines.decompose(np.dot(homo_b,homo_a))
+    print(T)
+    R_euler = tf.euler.mat2euler(R)
+    return np.concatenate((T,R_euler))
 
 if __name__ == '__main__':
     # Define two quaternions
