@@ -189,7 +189,8 @@ class CoordinateDetector(Node):
         z = depth_image_bbox[:,:,0]
         
         # Handle nans and flatten it, then cluster it
-        z_flat = z[~np.isnan(z)].reshape(-1, 1)
+        z_no_non = z[~np.isnan(z)]
+        z_flat = z_no_non[~np.isinf(z_no_non)].reshape(-1,1)
         self.kmeans.fit(z_flat)
         z = self.kmeans.cluster_centers_.min()
         # print(x0,x1,y0,y1,z)

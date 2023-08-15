@@ -38,7 +38,7 @@ install(PROGRAMS
   scripts/helper_funcs/ros_helper.py
   scripts/helper_funcs/math_helper.py
   scripts/helper_funcs/geo_helper.py
-  scripts/helper_funcs/camera_helper.py
+  scripts/helper_funcs/object_detection.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
