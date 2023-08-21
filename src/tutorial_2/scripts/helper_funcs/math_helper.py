@@ -5,6 +5,7 @@ from transforms3d.euler import euler2quat, quat2euler
 import math
 from math import radians
 import transforms3d as tf   
+from geometry_msgs.msg import Quaternion, Point
 
 def list_to_quat_arr(q):
     if len(q) != 3:
@@ -69,6 +70,16 @@ def transform_coordinates(xyzrpy_a, xyzrpy_b):
     print(T)
     R_euler = tf.euler.mat2euler(R)
     return np.concatenate((T,R_euler))
+
+def r_matrixFromQuaternion(q:Quaternion):
+    return np.array([[1 - 2*q.y**2 - 2*q.z**2, 2*q.x*q.y - 2*q.w*q.z, 2*q.x*q.z + 2*q.w*q.y],
+                     [2*q.x*q.y + 2*q.w*q.z, 1 - 2*q.x**2 - 2*q.z**2, 2*q.y*q.z - 2*q.w*q.x],
+                     [2*q.x*q.z - 2*q.w*q.y, 2*q.y*q.z + 2*q.w*q.x, 1 - 2*q.x**2 - 2*q.y**2]])
+    
+def find_absolute_pos(relative_pos:Point, current_quaternion:Quaternion):
+    R = r_matrixFromQuaternion(current_quaternion)
+    rotated_relative_position = np.dot(R,np.array([relative_pos.x, relative_pos.y, relative_pos.z]))
+    return rotated_relative_position
 
 if __name__ == '__main__':
     # Define two quaternions

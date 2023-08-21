@@ -605,13 +605,19 @@ def obj_det_go_location(drone: Ardu_Ros_Connect):
     xyz = np.mean(xyz,axis=0)
     print("Detected xyz, now go to that location",xyz)
     
+    curr_quaternion = drone.curr_pose.pose.pose.orientation
+    rel_point = Point()
+    rel_point.x, rel_point.y, rel_point.z = xyz[1], xyz[0], xyz[2]
+    xyz = find_absolute_pos(relative_pos=rel_point, current_quaternion=curr_quaternion)
+    
     # Detected xyz, now go to that location
     if not drone.coor_reached:
-      lat_t, lon_t, alt_t = drone.add_xyz2curr_lla([xyz[1],xyz[0],0])
-      # lat_t, lon_t, alt_t = drone.add_xyz2curr_lla([0,0,0])
-      drone.go_destination_global_lla(lat_t,lon_t,alt_t,0,use_alt_wsg=True)
+      lat_t, lon_t, alt_t = drone.add_xyz2curr_lla([xyz[0],xyz[1],0])
+      drone.go_destination_global_lla(lat_t,lon_t,alt_t,drone.curr_heading,use_alt_wsg=True)
       print("Reached the location")
       drone.coor_reached = True
+      
+
 def test_self(drone:Ardu_Ros_Connect):
 
   drone.await_waypoints_before_takeoff()
@@ -661,9 +667,9 @@ def main(args=None):
   drone.state_GUIDED()
   drone.wait4start()
 
-  n = 1
-  while n<1000:
-    obj_det_go_location(drone)
+  # n = 1
+  # while n<1000:
+  obj_det_go_location(drone)
   
 if __name__ == '__main__':
   main()

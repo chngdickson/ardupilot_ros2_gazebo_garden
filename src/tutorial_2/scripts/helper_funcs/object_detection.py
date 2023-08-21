@@ -7,7 +7,7 @@ from rclpy.executors import MultiThreadedExecutor
 
 # Ros msgs
 from sensor_msgs.msg import PointCloud2, PointField, Image
-
+from std_msgs.msg import Float64
 # Python libs
 from sensor_msgs_py import point_cloud2 as pc2
 import numpy as np
@@ -89,6 +89,9 @@ class CoordinateDetector(Node):
     self.sub_pc2 = self.create_subscription(PointCloud2, '/rgbd_camera/points', self.sub_pc2_cb, 10)
     self.sub_img = self.create_subscription(Image, '/rgbd_camera/image', self.sub_img_cb, 10)
     self.pub_coor = self.create_publisher(Point, '/rgbd_camera/points/coordinate', 10)
+    self.pub_camera = self.create_publisher(Float64, '/gimbal/cmd_tilt', 10)
+    
+    self.pub_camera.publish(Float64(data=90.0))
     
     # Clustering = 
     print("hello")
