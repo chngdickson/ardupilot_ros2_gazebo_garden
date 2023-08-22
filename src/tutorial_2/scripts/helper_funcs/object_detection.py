@@ -185,10 +185,10 @@ class CoordinateDetector(Node):
           else:
             return int((number-1)/2)
         # 0=z, 1=x, 2=y
-        x0 = depth_image_bbox[:,findMiddle(col),1].mean()
-        x1 = depth_image_bbox[findMiddle(row),:,1].mean()
-        y0 = depth_image_bbox[findMiddle(row),:,2].mean()
-        y1 = depth_image_bbox[:,findMiddle(col),2].mean()
+        y0 = depth_image_bbox[:,findMiddle(col),1].mean()
+        # x1 = depth_image_bbox[findMiddle(row),:,1].mean()
+        x0 = depth_image_bbox[findMiddle(row),:,2].mean()
+        # y1 = depth_image_bbox[:,findMiddle(col),2].mean()
         z = depth_image_bbox[:,:,0]
         
         # Handle nans and flatten it, then cluster it

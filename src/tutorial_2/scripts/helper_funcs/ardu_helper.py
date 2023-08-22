@@ -607,7 +607,7 @@ def obj_det_go_location(drone: Ardu_Ros_Connect):
     
     curr_quaternion = drone.curr_pose.pose.pose.orientation
     rel_point = Point()
-    rel_point.x, rel_point.y, rel_point.z = xyz[1], xyz[0], xyz[2]
+    rel_point.x, rel_point.y, rel_point.z = xyz[0], xyz[1], xyz[2]
     xyz = find_absolute_pos(relative_pos=rel_point, current_quaternion=curr_quaternion)
     
     # Detected xyz, now go to that location
@@ -655,6 +655,53 @@ def test_vel(drone:Ardu_Ros_Connect):
   for i in range(100):
     drone.pub_vel.publish(em_msg)
   rclpy.spin(drone)
+
+def test_vel2(drone:Ardu_Ros_Connect, tol:Point = Point(x=0.1, y=0.1, z=3.0)):
+  em_msg = TwistStamped()
+  
+  # Initialization
+  integral = np.array([0, 0, 0])
+  prev_err = np.array([0, 0, 0])
+  kps, kis, kds = np.array([.3, .3, .1]), np.array([0.02, 0.02, 0.01]), np.array([0.02, 0.02, 0.01])
+  unreached = True
+  
+  while unreached:
+    rclpy.spin_once(drone)
+    rel_pos, curr_quaternion = drone.centre_tree, drone.curr_pose.pose.pose.orientation
+    xyz = find_absolute_pos(relative_pos=rel_pos, current_quaternion=curr_quaternion)
+    x,y,z = xyz[0],xyz[1], xyz[2]
+    error = np.array([x,y,-z])
+
+    P = kps * error
+
+    integrals =  integral + error * .1
+    I = kis * integrals
+
+    D = kds * (error - prev_err) * .1
+    # Update error
+    prev_err = error
+    desired_vel = P + I + D
+    # print(f"vel {desired_vel}\nerror {error}")
+    
+    if abs(x) < tol.x and abs(y) < tol.y and abs(z) < tol.z:
+      unreached = False
+      print("Reached the location")
+      em_msg.twist.linear.x = 0.0
+      em_msg.twist.linear.y = 0.0
+      em_msg.twist.linear.z = 2.0
+      drone.pub_vel.publish(em_msg)
+    else:
+      print(x,y,z)
+    
+    
+    em_msg.twist.linear.x = desired_vel[0] if abs(x) > tol.x else 0.0
+    em_msg.twist.linear.y = desired_vel[1] if abs(y) > tol.y else 0.0
+    em_msg.twist.linear.z = desired_vel[2] if abs(z) > tol.z else 0.0
+    drone.pub_vel.publish(em_msg)
+    
+  
+  
+  
   
 def main(args=None):
   rclpy.init(args=args)
@@ -669,7 +716,8 @@ def main(args=None):
 
   # n = 1
   # while n<1000:
-  obj_det_go_location(drone)
+  # obj_det_go_location(drone)
+  test_vel2(drone)
   
 if __name__ == '__main__':
   main()

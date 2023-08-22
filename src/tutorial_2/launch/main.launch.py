@@ -57,6 +57,6 @@ def generate_launch_description():
     gazebo_launch_file,
     # cam_bridge_launch_file,
     cam_rgbd_bridge_launch_file,
-    tf_bridge_launch_file
-    #   mavros_node
+    tf_bridge_launch_file,
+    mavros_node
   ])
