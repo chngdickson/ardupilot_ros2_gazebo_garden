@@ -6,7 +6,7 @@ from geo_helper import *
 
 # Python funcs
 from math import atan2, pow, sqrt, degrees, radians, sin, cos
-from transforms3d.euler import euler2quat, quat2euler
+from transforms3d.euler import quat2euler
 import threading
 import asyncio
 import time
@@ -299,10 +299,7 @@ class Ardu_Ros_Connect(Node):
     heading += self.local_init_heading
     
     yaw, pitch, roll = radians(heading), 0.0, 0.0
-    qx,qy,qz,qw = euler2quat(yaw,pitch,roll)
-    q = Quaternion()
-    q.x, q.y, q.z, q.w = qx, qy, qz, qw
-    return q
+    return euler_2_quat(yaw,pitch,roll)
     
   def set_pos(self,x,y,z):
     theta = radians((self.local_init_heading-90))
@@ -681,7 +678,7 @@ def test_vel2(drone:Ardu_Ros_Connect, tol:Point = Point(x=0.1, y=0.1, z=3.0)):
     # Update error
     prev_err = error
     desired_vel = P + I + D
-    # print(f"vel {desired_vel}\nerror {error}")
+
     
     if abs(x) < tol.x and abs(y) < tol.y and abs(z) < tol.z:
       unreached = False

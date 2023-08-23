@@ -1,24 +1,29 @@
 #!/usr/bin/env python3 
 import numpy as np
-import quaternion
+# import quaternion
 from transforms3d.euler import euler2quat, quat2euler
 import math
 from math import radians
 import transforms3d as tf   
 from geometry_msgs.msg import Quaternion, Point
 
-def list_to_quat_arr(q):
-    if len(q) != 3:
-        assert ValueError("Bro your list needs to have 4 Values inserted")
-    return np.quaternion(q[0],q[1],q[2],q[3])
+def quaternion_multiply(q1: Quaternion, q2: Quaternion):
+    x = q1.x * q2.w + q1.y * q2.z - q1.z * q2.y + q1.w * q2.x
+    y = -q1.x * q2.z + q1.y * q2.w + q1.z * q2.x + q1.w * q2.y
+    z = q1.x * q2.y - q1.y * q2.x + q1.z * q2.w + q1.w * q2.z
+    w = -q1.x * q2.x - q1.y * q2.y - q1.z * q2.z + q1.w * q2.w
+    return Quaternion(x=x, y=y, z=z, w=w)
 
-def quaternion_angle_difference(q1, q2, axis):
+def quaternion_inverse(q: Quaternion):
+    return Quaternion(x=q1.x, y=q1.y, z=q1.z, w=-q1.w)
+
+def quaternion_angle_difference(q1: Quaternion, q2: Quaternion, axis: str):
     """
     Computes the angle difference between two quaternions relative to a given axis.
     
     Parameters:
-    q1 (numpy.quaternion): The first quaternion.
-    q2 (numpy.quaternion): The second quaternion.
+    q1 (Quaternion): The first quaternion.
+    q2 (Quaternion): The second quaternion.
     axis (str): The axis relative to which to compute the angle difference. Can be 'x', 'y', or 'z'.
     
     Returns:
@@ -26,12 +31,11 @@ def quaternion_angle_difference(q1, q2, axis):
     """
     
     # Find the quaternion representing the rotation from q1 to q2
-    q = q2 * q1.inverse()
-
+    q = quaternion_multiply(q2, quaternion_inverse(q1))
+    
+    # print(q_np)
     # Convert the quaternion to a rotation matrix
-    R = np.array([[1 - 2*q.y**2 - 2*q.z**2, 2*q.x*q.y - 2*q.w*q.z, 2*q.x*q.z + 2*q.w*q.y],
-                  [2*q.x*q.y + 2*q.w*q.z, 1 - 2*q.x**2 - 2*q.z**2, 2*q.y*q.z - 2*q.w*q.x],
-                  [2*q.x*q.z - 2*q.w*q.y, 2*q.y*q.z + 2*q.w*q.x, 1 - 2*q.x**2 - 2*q.y**2]])
+    R = r_matrixFromQuaternion(q)
 
     # Find the unit vector along the given axis
     if axis.lower() == 'x' or axis.lower=="roll":
@@ -51,10 +55,15 @@ def quaternion_angle_difference(q1, q2, axis):
 
     return angle*180/math.pi
 
-def euler_2_quat(x,y,z):
-    yaw, pitch, roll = radians(x), radians(y), radians(z)
-    qx,qy,qz,qw = euler2quat(yaw,pitch,roll)
-    return np.quaternion(qw,qx,qy,qz)
+def euler_2_quat(yaw,pitch,roll)-> Quaternion:
+    # Convert to radians
+    yaw, pitch, roll = radians(yaw), radians(pitch), radians(roll)
+    q = Quaternion()
+    q.x = np.sin(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) - np.cos(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
+    q.y = np.cos(roll/2) * np.sin(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.cos(pitch/2) * np.sin(yaw/2)
+    q.z = np.cos(roll/2) * np.cos(pitch/2) * np.sin(yaw/2) - np.sin(roll/2) * np.sin(pitch/2) * np.cos(yaw/2)
+    q.w = np.cos(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
+    return q
 
 
 def transform_coordinates(xyzrpy_a, xyzrpy_b):
@@ -83,8 +92,11 @@ def find_absolute_pos(relative_pos:Point, current_quaternion:Quaternion):
 
 if __name__ == '__main__':
     # Define two quaternions
-    q1 = euler_2_quat(179,0,179)
+    q1 = euler_2_quat(100,0,179)
     q2 = euler_2_quat(0,0,0)
-
+    
+    print(quaternion_angle_difference(q1,q2,"x"))
+    print(quaternion_angle_difference(q1,q2,"y"))
+    print(quaternion_angle_difference(q1,q2,"z"))
     
     

@@ -152,7 +152,7 @@ if __name__ == '__main__':
   
   print(res1)
   x,y,z = -20,-20,1
-  res2 = enu_to_lla(x,y,z, lat_org, lon_org, alt_org)
+  res2 = geo_helper.enu_to_lla(x,y,z, lat_org, lon_org, alt_org)
   print (res2)
 
   
