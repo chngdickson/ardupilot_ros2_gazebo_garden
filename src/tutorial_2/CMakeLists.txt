@@ -6,12 +6,12 @@ project(tutorial_2)
 find_package(ament_cmake REQUIRED)
 # find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
-# find_package(rclpy REQUIRED)
+
 
 include_directories(include)
 
 install(
-  DIRECTORY config launch models worlds model_sensors rviz scripts geoids
+  DIRECTORY config launch models worlds model_sensors rviz scripts geoids yolov8Weights
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -33,12 +33,12 @@ install(
 # Install Python modules
 
 install(PROGRAMS
-  scripts/examples.py
   scripts/helper_funcs/ardu_helper.py
   scripts/helper_funcs/ros_helper.py
   scripts/helper_funcs/math_helper.py
   scripts/helper_funcs/geo_helper.py
   scripts/helper_funcs/object_detection.py
+  scripts/main.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

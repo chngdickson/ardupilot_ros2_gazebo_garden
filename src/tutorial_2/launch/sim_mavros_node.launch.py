@@ -9,13 +9,16 @@ from launch.events.process.process_exited import ProcessExited
 from launch.event_handlers.on_process_exit import OnProcessExit
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch_ros.actions import Node
+import subprocess
 
 def launch_setup(context, *args, **kwargs):
 
   pth_mavros_launcher = get_package_share_directory("tutorial_2")
-  pth_param0 = pth_mavros_launcher + "/config/mavros_configs/params.yaml"
+  pth_param0 = pth_mavros_launcher + "/config/mavros_configs/sim_params.yaml"
   pth_param1 = pth_mavros_launcher + "/config/mavros_configs/apm_config.yaml"
   pth_param2 = pth_mavros_launcher + "/config/mavros_configs/apm_pluginlists.yaml"  
+  if os.path.exists(pth_param0) == False:
+    raise FileNotFoundError("File {} not found".format(pth_param0))
   log_level = LaunchConfiguration("log_level")
   
   mavros_node = Node(
@@ -26,7 +29,8 @@ def launch_setup(context, *args, **kwargs):
     arguments=["--ros-args", "--log-level", log_level]
     
   )
-  
+  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
+  subprocess.Popen(cmd)
   return [mavros_node]
   
 def generate_launch_description():

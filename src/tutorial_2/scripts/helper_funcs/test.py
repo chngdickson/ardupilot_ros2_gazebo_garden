@@ -1,17 +1,12 @@
 import numpy as np
 
-xyz = np.array([1,1,1])
-integral = np.array([0,0,0])
-prev_err = np.array([0, 0, 0])
-kps, kis, kds = np.array([.25, .25, .1]), np.array([0.01, 0.01, 0.01]), np.array([0.01, 0.01, 0.01])
-error = -xyz
+cv = [[1,3,4,56,0,345],[2,3,2,56,87,255],[234,45,35,76,12,87]]
+cv2 = [[1,6,4,56,0,345],[2,3,4,56,187,255],[234,45,35,0,12,87]]
 
-P = kps * error
+output = np.true_divide(cv,cv2,where=(cv!=0) | (cv2!=0))
+print(output)
 
-integrals =  integral + error * .1
-I = kis * integrals
-
-D = kds * (error - prev_err) * .1
-prev_err = error
-
-print(P+I+D)
+def filter(arr):
+  arr[~np.isfinite(arr)] = np.mean(arr[np.isfinite(arr)])
+  return arr
+print(filter(output))

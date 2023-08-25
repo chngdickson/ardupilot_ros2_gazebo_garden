@@ -16,12 +16,6 @@ def generate_launch_description():
 
   pth_my_world_ros = get_package_share_directory('tutorial_2')
 
-  # # Camera launch
-  cam_bridge_launch_file = IncludeLaunchDescription(
-      PythonLaunchDescriptionSource(
-      os.path.join(pth_my_world_ros, 'launch', 'camera_bridge.launch.py')
-      )
-  )
   # RGBD camera launch
   cam_rgbd_bridge_launch_file = IncludeLaunchDescription(
       PythonLaunchDescriptionSource(
@@ -42,15 +36,16 @@ def generate_launch_description():
       )
   )
   
-  mavros_node = IncludeLaunchDescription(
+  sim_mavros_node = IncludeLaunchDescription(
       PythonLaunchDescriptionSource(
-      os.path.join(pth_my_world_ros, 'launch', 'mavros_node.launch.py')
+      os.path.join(pth_my_world_ros, 'launch', 'sim_mavros_node.launch.py')
       )
   )
-  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
-  # # cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--console","--custom-location","2.868877,101.411648,0,0"]
-  subprocess.Popen(cmd)
-  
+#   real_mavros_node = IncludeLaunchDescription(
+#     PythonLaunchDescriptionSource(
+#         os.path.join(pth_my_world_ros, 'launch', 'real_mavros_node.launch.py')
+#         )
+#   )
   
   # return LaunchDescription([first_launch_file, second_launch_file])
   return LaunchDescription([
@@ -58,5 +53,5 @@ def generate_launch_description():
     # cam_bridge_launch_file,
     cam_rgbd_bridge_launch_file,
     tf_bridge_launch_file,
-    mavros_node
+    sim_mavros_node
   ])

@@ -6,12 +6,10 @@ from geo_helper import *
 
 # Python funcs
 from math import atan2, pow, sqrt, degrees, radians, sin, cos
-from transforms3d.euler import quat2euler
 import threading
-import asyncio
 import time
 import numpy as np
-from typing import Tuple
+
 # ROS2 essentials
 import rclpy
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy,QoSDurabilityPolicy
@@ -49,8 +47,9 @@ class Ardu_Ros_Connect(Node):
     self.waypoint = PoseStamped()
     self.curr_global_pose = NavSatFix()
     self.centre_tree = Point()
-    self.coor_reached = True
-    
+    self.coor_reached = False
+    self.received_waypoints = False
+    self.obj_det_updated = False
     # Class Internals
     self.local_init_pose = Point()
     self.global_init_pose = NavSatFix()
@@ -72,10 +71,11 @@ class Ardu_Ros_Connect(Node):
     self.sub_waypoints = self.create_subscription(WaypointList,'/mavros/mission/waypoints',self.cb_waypoints, 10)
     self.sub_home_pose = self.create_subscription(HomePosition,'/mavros/home_position/home',self.cb_home_pose, qos_whatever_dude)
     self.sub_coor_pose = self.create_subscription(Point,'/rgbd_camera/points/coordinate', self.cb_coor_pose, qos_reliable)
+    # self.sub_waypoints = self.create_subscription(WaypointList,'/mavros/mission/waypoints',self.cb_waypoints, qos_reliable)
     
     # Publishers
     self.pub_state = self.create_publisher(State, "/mavros/state", 10)
-    self.pub_local_pos = self.create_publisher(PoseStamped, "/mavros/setpoint_position/local", 10)
+    # self.pub_local_pos = self.create_publisher(PoseStamped, "/mavros/setpoint_position/local", 10)
     self.pub_global_pos = self.create_publisher(GeoPoseStamped,"/mavros/setpoint_position/global", 10)
     self.pub_vel = self.create_publisher(TwistStamped,"/mavros/setpoint_velocity/cmd_vel", 10)
     
@@ -109,7 +109,7 @@ class Ardu_Ros_Connect(Node):
   """
   
   """
-  START PRE-FLIGHT INITIALIZATION
+  START CALLBACK FUNCTIONS
   """
   def cb_state(self, curr_state:State):
     self.curr_state = curr_state 
@@ -126,8 +126,33 @@ class Ardu_Ros_Connect(Node):
   
   def cb_coor_pose(self, msg:Point):
     self.coor_reached , self.centre_tree = False, msg
+    self.obj_det_updated = True
     
+  def cb_home_pose(self, msg:HomePosition):
+    """
+    alt = amsl
+    """
+    # self.get_logger().info(f"cb_home_pose {msg.geo.latitude}, {msg.geo.longitude}, {msg.geo.altitude}")
     
+    # Set Global_pose
+    self.global_init_pose.latitude = msg.geo.latitude
+    self.global_init_pose.longitude = msg.geo.longitude
+    # Specifies that alt uses WSG84
+    alt_wsg = msg.geo.altitude
+    self.global_init_pose.altitude = alt_wsg
+    
+    # print("global init pose from cb_home_pose",self.global_init_pose)
+    # Set Local_pose
+    self.local_init_pose.x = msg.position.x
+    self.local_init_pose.y = msg.position.y
+    self.local_init_pose.z = msg.position.z
+    
+    x,y,z,w = msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w
+    self.local_init_heading = atan2((2 * (w * z + x * y)),(1 - 2 * (pow(y, 2) + pow(z, 2))))
+  
+  """
+  END CALLBACK FUNCTIONS
+  """
   def wait4connect(self):
     self.get_logger().info("wait4connect")
     while rclpy.ok() and not self.curr_state.connected:
@@ -177,28 +202,6 @@ class Ardu_Ros_Connect(Node):
       timer.cancel()
       self.get_logger().info(f"{arm_mode} completed!  [{self.curr_state.armed}]")
       return True
-  
-  def cb_home_pose(self, msg:HomePosition):
-    """
-    alt = amsl
-    """
-    self.get_logger().info(f"cb_home_pose {msg.geo.latitude}, {msg.geo.longitude}, {msg.geo.altitude}")
-    
-    # Set Global_pose
-    self.global_init_pose.latitude = msg.geo.latitude
-    self.global_init_pose.longitude = msg.geo.longitude
-    # Specifies that alt uses WSG84
-    alt_wsg = msg.geo.altitude
-    self.global_init_pose.altitude = alt_wsg
-    
-    print("global init pose from cb_home_pose",self.global_init_pose)
-    # Set Local_pose
-    self.local_init_pose.x = msg.position.x
-    self.local_init_pose.y = msg.position.y
-    self.local_init_pose.z = msg.position.z
-    
-    x,y,z,w = msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w
-    self.local_init_heading = atan2((2 * (w * z + x * y)),(1 - 2 * (pow(y, 2) + pow(z, 2))))
 
 
   def takeoff(self, takeoff_alt: float, n=0):
@@ -292,8 +295,6 @@ class Ardu_Ros_Connect(Node):
       raise Exception()
 
 
-
-  
   def set_heading(self, heading)->Quaternion:
     self.local_desired_heading = heading
     heading += self.local_init_heading
@@ -316,34 +317,34 @@ class Ardu_Ros_Connect(Node):
     p.x, p.y, p.z = x, y, z
     return p
   
-  def go_destination_euler(self, x, y, z, heading, publish:bool=True):
-    self.set_destination_euler(x, y, z, heading, True)
-    while not self.check_waypoint_reached(0.3):
-      rclpy.spin_once(self, timeout_sec=0.001)
-      self.set_destination_euler(x, y, z, heading, True)
-    return None
+  # def go_destination_euler(self, x, y, z, heading, publish:bool=True):
+  #   self.set_destination_euler(x, y, z, heading, True)
+  #   while not self.check_waypoint_reached(0.3):
+  #     rclpy.spin_once(self, timeout_sec=0.001)
+  #     self.set_destination_euler(x, y, z, heading, True)
+  #   return None
+  
+  # def set_destination_euler(self, x, y, z, heading, publish:bool=True):    
+  #   self.waypoint.pose.position = self.set_pos(x,y,z)
+  #   self.waypoint.pose.orientation = self.set_heading(heading)
+  #   if publish:
+  #     self.pub_local_pos.publish(self.waypoint)
+  #   return None
+  
+  # def set_destination_quat(self, wp:Pose, publish:bool=True):
+  #   self.waypoint.pose.position = wp.position
+  #   self.waypoint.pose.orientation = wp.orientation
+  #   if publish:
+  #     self.pub_local_pos.publish(self.waypoint)
+  #     while not self.check_waypoint_reached():
+  #       rclpy.spin_once(self, timeout_sec=0.0001)
+  #   return None
   
   def go_destination_global_lla(self,lat: float, long: float, alt: float, heading: float, use_alt_wsg:bool=False):
     self.set_destination_global_lla(lat, long, alt ,heading, True, use_alt_wsg)
     while not self.check_waypoint_reached_global(0.3):
       rclpy.spin_once(self, timeout_sec=0.001)
       self.set_destination_global_lla(lat, long, alt ,heading, True, use_alt_wsg)
-    return None
-  
-  def set_destination_euler(self, x, y, z, heading, publish:bool=True):    
-    self.waypoint.pose.position = self.set_pos(x,y,z)
-    self.waypoint.pose.orientation = self.set_heading(heading)
-    if publish:
-      self.pub_local_pos.publish(self.waypoint)
-    return None
-  
-  def set_destination_quat(self, wp:Pose, publish:bool=True):
-    self.waypoint.pose.position = wp.position
-    self.waypoint.pose.orientation = wp.orientation
-    if publish:
-      self.pub_local_pos.publish(self.waypoint)
-      while not self.check_waypoint_reached():
-        rclpy.spin_once(self, timeout_sec=0.0001)
     return None
   
   def set_destination_global_lla(self,lat: float, long: float, alt: float, heading: float, publish:bool=True, use_alt_wsg:bool=False):
@@ -435,15 +436,16 @@ class Ardu_Ros_Connect(Node):
       return False
 
   def cb_waypoints(self, msg:WaypointList):
+    if len(msg.waypoints) == 0:
+      return
+    self.get_logger().info("Receiving Waypoints")
     lst = []
     wpoints = []
     for i, wp in enumerate(msg.waypoints):
       wp:Waypoint=wp
       if wp.command == 16 and i != 0:
-        # pos = Pose()
-        gip = self.global_init_pose
         wpoints.append([wp.x_lat, wp.y_long, wp.z_alt,wp.param4])
-        # wpoints.append(pos)
+    self.received_waypoints = True
     if len(wpoints) > 0:
       self._wpoints = wpoints
   
@@ -469,22 +471,12 @@ class Ardu_Ros_Connect(Node):
       )
     
   def _clr_waypoints(self):
-    # request, response= WaypointClear.Request(), WaypointClear.Response()
-    # future = self._waypoint_clr_client.call_async(request)
-    # rclpy.spin_until_future_complete(self.sub_node, future)
-    
-    # if future.result() is not None:
-    #   result: WaypointClear.Request = future.result()
-    #   response.success = result.success
-    #   return response
-    # else:
-    #   self.get_logger().error("exception while")
     return generic_service_call(
       node = self.sub_node,
       client = self._waypoint_clr_client,
       client_req=WaypointClear.Request(),
       client_res=WaypointClear.Response(),
-      name_of_srv="Internal_pull_waypoint",
+      name_of_srv="Internal_clr_waypoint",
       timeout=3.0
       )
       
@@ -530,7 +522,7 @@ class Ardu_Ros_Connect(Node):
         self.get_logger().info(f"{name_of_srv} Completed")
       return result
     else:
-      self.get_logger().error("exception while")
+      self.get_logger().error("exception while calling service: %r" % future.exception())
     
   
   def add_xyz2curr_lla(self, xyz)-> list:
@@ -558,16 +550,57 @@ class Ardu_Ros_Connect(Node):
       )
     print("original:",xyz_rel_to_origin,"\nnew" ,xyz)
     return [lat_new, lon_new, alt_new]
+  
+  def PID_obj_det(self,tol:Point = Point(x=0.15, y=0.15, z=3.5), timeout=3.0):
+    em_msg = TwistStamped()
     
-def run_executor(executor, node):
-  executor.add_node(node)
-  try:
-    executor.spin()
-  finally:
-    node.destroy_node()
-    executor.shutdown()
+    # Initialization
+    integral = np.array([0, 0, 0])
+    prev_err = np.array([0, 0, 0])
+    kps, kis, kds = np.array([.4, .4, .3]), np.array([0.02, 0.02, 0.02]), np.array([0.02, 0.02, 0.02])
+    unreached = True
+    start = time.time()
+    while unreached and (time.time() - start) < timeout:
+      rclpy.spin_once(self)
+      if not self.obj_det_updated:
+        # If there is no update, then continue to next iteration
+        continue
+      else:
+        # Reset the counter and current_object_detection has been completed
+        start, self.obj_det_updated = time.time(), False
+        
+        rel_pos, curr_quaternion = self.centre_tree, self.curr_pose.pose.pose.orientation
+        xyz = find_absolute_pos(relative_pos=rel_pos, current_quaternion=curr_quaternion)
+        x,y,z = xyz[0],xyz[1], xyz[2]
+        error = np.array([x,y,-z])
 
+        P = kps * error
 
+        integrals =  integral + error * .1
+        I = kis * integrals
+
+        D = kds * (error - prev_err) * .1
+        # Update error
+        prev_err = error
+        desired_vel = P + I + D
+
+        
+        if abs(x) < tol.x and abs(y) < tol.y and abs(z) < tol.z:
+          unreached = False
+          print("Reached the location")
+          em_msg.twist.linear.x = 0.0
+          em_msg.twist.linear.y = 0.0
+          em_msg.twist.linear.z = 2.0
+          self.pub_vel.publish(em_msg)
+        # else:
+        #   print(x,y,z)
+        
+        
+        em_msg.twist.linear.x = desired_vel[0] if abs(x) > tol.x else 0.0
+        em_msg.twist.linear.y = desired_vel[1] if abs(y) > tol.y else 0.0
+        em_msg.twist.linear.z = desired_vel[2] if abs(z) > tol.z else 0.0
+        self.pub_vel.publish(em_msg)
+        
 def typical_wp(drone:Ardu_Ros_Connect):
   drone.wait4connect()
   drone.state_GUIDED()
@@ -660,45 +693,58 @@ def test_vel2(drone:Ardu_Ros_Connect, tol:Point = Point(x=0.1, y=0.1, z=3.0)):
   integral = np.array([0, 0, 0])
   prev_err = np.array([0, 0, 0])
   kps, kis, kds = np.array([.3, .3, .1]), np.array([0.02, 0.02, 0.01]), np.array([0.02, 0.02, 0.01])
-  unreached = True
+  unreached, counter_terminate= True, 0
   
-  while unreached:
+  while unreached and counter_terminate < 15:
     rclpy.spin_once(drone)
-    rel_pos, curr_quaternion = drone.centre_tree, drone.curr_pose.pose.pose.orientation
-    xyz = find_absolute_pos(relative_pos=rel_pos, current_quaternion=curr_quaternion)
-    x,y,z = xyz[0],xyz[1], xyz[2]
-    error = np.array([x,y,-z])
-
-    P = kps * error
-
-    integrals =  integral + error * .1
-    I = kis * integrals
-
-    D = kds * (error - prev_err) * .1
-    # Update error
-    prev_err = error
-    desired_vel = P + I + D
-
-    
-    if abs(x) < tol.x and abs(y) < tol.y and abs(z) < tol.z:
-      unreached = False
-      print("Reached the location")
-      em_msg.twist.linear.x = 0.0
-      em_msg.twist.linear.y = 0.0
-      em_msg.twist.linear.z = 2.0
-      drone.pub_vel.publish(em_msg)
+    if not drone.obj_det_updated:
+      counter_terminate+=1
     else:
-      print(x,y,z)
-    
-    
-    em_msg.twist.linear.x = desired_vel[0] if abs(x) > tol.x else 0.0
-    em_msg.twist.linear.y = desired_vel[1] if abs(y) > tol.y else 0.0
-    em_msg.twist.linear.z = desired_vel[2] if abs(z) > tol.z else 0.0
-    drone.pub_vel.publish(em_msg)
+      # Reset the counter and current_object_detection has been completed
+      drone.obj_det_updated, counter_terminate = False, 0
+      
+      rel_pos, curr_quaternion = drone.centre_tree, drone.curr_pose.pose.pose.orientation
+      xyz = find_absolute_pos(relative_pos=rel_pos, current_quaternion=curr_quaternion)
+      x,y,z = xyz[0],xyz[1], xyz[2]
+      error = np.array([x,y,-z])
+
+      P = kps * error
+
+      integrals =  integral + error * .1
+      I = kis * integrals
+
+      D = kds * (error - prev_err) * .1
+      # Update error
+      prev_err = error
+      desired_vel = P + I + D
+
+      
+      if abs(x) < tol.x and abs(y) < tol.y and abs(z) < tol.z:
+        unreached = False
+        print("Reached the location")
+        em_msg.twist.linear.x = 0.0
+        em_msg.twist.linear.y = 0.0
+        em_msg.twist.linear.z = 2.0
+        drone.pub_vel.publish(em_msg)
+      else:
+        print(x,y,z)
+      
+      
+      em_msg.twist.linear.x = desired_vel[0] if abs(x) > tol.x else 0.0
+      em_msg.twist.linear.y = desired_vel[1] if abs(y) > tol.y else 0.0
+      em_msg.twist.linear.z = desired_vel[2] if abs(z) > tol.z else 0.0
+      drone.pub_vel.publish(em_msg)
     
   
   
-  
+def run_executor(executor, node):
+  executor.add_node(node)
+  try:
+    executor.spin()
+  finally:
+    node.destroy_node()
+    executor.shutdown()
+
   
 def main(args=None):
   rclpy.init(args=args)

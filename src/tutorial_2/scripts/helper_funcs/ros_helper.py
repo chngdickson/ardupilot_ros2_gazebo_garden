@@ -27,8 +27,8 @@ def generic_service_call(node:Node, client: Client, client_req, client_res, name
       node.get_logger().info(f"{name_of_srv} Completed")
     return client_res
   else:
-    node.get_logger().error("exception while")
-  
+    node.get_logger().warn("exception while calling service: %r" % future.exception())
+    return client_res  
 def generic_service_timer(
   node:Node, 
   client: Client, 

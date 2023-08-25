@@ -4,6 +4,8 @@ import threading
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
+from ament_index_python.packages import get_package_share_directory
+import message_filters as mf_ros2
 
 # Ros msgs
 from sensor_msgs.msg import PointCloud2, PointField, Image
@@ -12,7 +14,6 @@ from std_msgs.msg import Float64
 from sensor_msgs_py import point_cloud2 as pc2
 import numpy as np
 from matplotlib import pyplot as plt
-import subprocess
 import math
 
 # YOLO
@@ -25,8 +26,9 @@ import time
 
 # Clustering
 from sklearn.cluster import MiniBatchKMeans
-
 from geometry_msgs.msg import Point
+from matplotlib import pyplot as plt
+
 class PointCloudHelper():
   def __init__(self) -> None:
     pass
@@ -74,142 +76,154 @@ def draw_boxes(img, bbox, color="red", categories=None, names=None, offset=(0, 0
   return img
 
 class CoordinateDetector(Node):
-  def __init__(self):
+  def __init__(self, 
+    package_name:str="tutorial_2", 
+    model_dir_name:str="yolov8Weights", 
+    model_filename:str = "bestmodel.pt",
+    show_image: bool = True
+    ):
     super().__init__(self.__class__.__name__) # type: ignore
+    # Comment the parameters
+    """
+    Parameters:
+    -----------
+    package_name: str
+      The name of the package where the model is stored
+    model_dir_name: str
+      The name of the directory inside the package where the model is stored
+    model_filename: str
+      The name of the model file
+      
+    Returns:
+    --------
+    None
+    """
+    self.show_image = show_image 
     # PointCloud2 helper funcs
     self.pchelper = PointCloudHelper().pc2_to_numpy
 
     # Yolov8
     self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-    dir_path , model_weight_file_name = os.path.dirname(os.path.realpath(__file__)), "bestmodel.pt"
-    file_path = os.path.join(dir_path, model_weight_file_name)
+    pth_package = get_package_share_directory(package_name)
+    file_path = os.path.join(pth_package, model_dir_name, model_filename)
     self.model = YOLO(file_path)
     
     # Subscribers
-    self.sub_pc2 = self.create_subscription(PointCloud2, '/rgbd_camera/points', self.sub_pc2_cb, 10)
-    self.sub_img = self.create_subscription(Image, '/rgbd_camera/image', self.sub_img_cb, 10)
+    self.sub_img = mf_ros2.Subscriber(self, Image, '/rgbd_camera/image')
+    self.sub_pc2 = mf_ros2.Subscriber(self, PointCloud2, '/rgbd_camera/points')
+    
+    self.subImgAndPointCloud = mf_ros2.ApproximateTimeSynchronizer([self.sub_img, self.sub_pc2], 10, 0.1).registerCallback(self.subImgAndPointCloud_cb)
+    
+    # Publishers
     self.pub_coor = self.create_publisher(Point, '/rgbd_camera/points/coordinate', 10)
+    """ONLY WORKS IN SIMULATION"""
     self.pub_camera = self.create_publisher(Float64, '/gimbal/cmd_tilt', 10)
+    self.pub_camera.publish(Float64(data=90.0)) 
     
-    self.pub_camera.publish(Float64(data=90.0))
-    
-    # Clustering = 
-    print("hello")
+    # Clustering 
     self.kmeans = MiniBatchKMeans(n_clusters=2, batch_size=256, max_iter=50, n_init="auto")
-    # Coordinate detector
-    self.image = None
-    self.depth_image = None
-    while True:
-      if self.image is not None and self.depth_image is not None:
-        image = self.image
-        start = time.time()
-        boxes, bbox_depth_img, xyz = self.get_coordinate()
-        end = time.time()
-        print('Total time is',end-start)
-        if boxes is not None:
+
+    plt.ion()
+
+  
+  def subImgAndPointCloud_cb(self, img_msg:Image, pc2_msg:PointCloud2):
+    depth_image = self.pchelper(pc2_msg)
+    # x,y,z = xyz[:,:,0], xyz[:,:,1], xyz[:,:,2]
+    # r,g,b = xyz[:,:,3], xyz[:,:,4], xyz[:,:,5]
+    image = np.frombuffer(img_msg.data, dtype=np.uint8).reshape(img_msg.height, img_msg.width, -1)
+    
+    if depth_image is not None and image is not None:
+      boxes, bbox_depth_img, xyz = self.get_coordinate(image, depth_image)
+      if self.show_image:
+        if boxes is not None and bbox_depth_img is not None:
           if len(boxes)>0:
             image = draw_boxes(image, boxes)
             image = np.concatenate((image, bbox_depth_img), axis=1)
-        cv2.imshow("image", image)
-      if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-      rclpy.spin_once(self, timeout_sec=0.01)
-    
-  def sub_pc2_cb(self, msg:PointCloud2) -> None:
-    # pose = subprocess.Popen(["gz topic -e  -t world/iris_runway2/pose/info -n1 | grep \"base_link\" -A6"], shell=True, stdout=subprocess.PIPE)
-    # pose_xyz = pose.communicate()[0].decode("utf-8")
-    width, height = msg.width, msg.height
-    xyz = self.pchelper(msg)
-    self.depth_image = xyz
-    # print(xyz.shape)
-    
-    x,y,z = xyz[:,:,0], xyz[:,:,1], xyz[:,:,2]
-    r,g,b = xyz[:,:,3], xyz[:,:,4], xyz[:,:,5]
-    return
-  
-  def sub_img_cb(self, msg:Image) -> None:
-    self.image = np.frombuffer(msg.data, dtype=np.uint8).reshape(msg.height, msg.width, -1)
-    # print(self.image.shape)
-    return
+        else:
+          image = np.concatenate((image, np.zeros((image.shape[0], image.shape[1], 3), dtype=np.uint8)), axis=1)
+        plt.imshow(image)
+        plt.show()
+        plt.pause(0.001)
+        plt.clf()
+
   
   def detect_and_track(self, img:np.ndarray):
     results = self.model.predict(img, verbose=False)
     if len(results[0])>0:
       boxes = results[0].boxes.xyxy.cpu().numpy()
+      
       return boxes
-  
-  def get_coordinate(self):
+  def filter(self, arr):
+    arr[~np.isfinite(arr)] = np.mean(arr[np.isfinite(arr)])
+    return arr
+  def get_coordinate(self, image, depth_image):
     """
     Algorithm
-    1. Get the image and depth image
-    2. Detect the objects in the image
-    3. Find the object closest to the center of the image
-    4. Find the depth of indexes within the object
-    5. Normalize the depth values
+    1. Detect the objects and KalmanFilter track
+    2. Find the object closest to the center of the image
+    3. Find the depth of indexes within the object
+    4. Normalize the depth values
     """
-    
-    # 1. Get the image and depth image
-    if self.image is not None and self.depth_image is not None:
-      image, depth_image = self.image, self.depth_image
+       
+    # 1. Detect the objects in the image
+    boxes = self.detect_and_track(image)
+    h,w = image.shape[0], image.shape[1]
+    cx_img, cy_img = w/2, h/2
+    # 2. Find the object closest to the center of the image
+    if boxes is not None:
+      distances_from_center = []
+      centers = np.vstack([boxes[:,0]+(boxes[:,2]-boxes[:,0])/2, boxes[:,1]+(boxes[:,3]-boxes[:,1])/2]).T
       
-      # 2. Detect the objects in the image
-      boxes = self.detect_and_track(image)
-      h,w = image.shape[0], image.shape[1]
-      cx_img, cy_img = w/2, h/2
-      # 3. Find the object closest to the center of the image
-      if boxes is not None:
-        distances_from_center = []
-        centers = np.vstack([boxes[:,0]+(boxes[:,2]-boxes[:,0])/2, boxes[:,1]+(boxes[:,3]-boxes[:,1])/2]).T
-        
-        for i, center in enumerate(centers):
-          distances_from_center.append(math.dist((cx_img, cy_img), center))
-        idx_closest = np.argmin(distances_from_center)
-        box_closest = boxes[idx_closest]
-        
-        # 4. Find the depth of indexes within the object
-        box_closest = np.array(box_closest).astype(int)
-        slice_y,slice_x = slice(box_closest[0], box_closest[2]), slice(box_closest[1], box_closest[3])
-        depth_image_bbox = depth_image[slice_x, slice_y,0:3]
-        # For visualization
-        depth_bbox_img = np.ones((h,w,3)).astype(np.uint8)*255
-        depth_bbox_img[slice_x, slice_y] = depth_image_bbox
+      for i, center in enumerate(centers):
+        distances_from_center.append(math.dist((cx_img, cy_img), center))
+      idx_closest = np.argmin(distances_from_center)
+      box_closest = boxes[idx_closest]
+      
+      # 3. Find the depth of indexes within the object
+      box_closest = np.array(box_closest).astype(int)
+      slice_y,slice_x = slice(box_closest[0], box_closest[2]), slice(box_closest[1], box_closest[3])
+      
+      # Filter the depth image
+      depth_image = self.filter(depth_image)
+      depth_image_bbox = depth_image[slice_x, slice_y,0:3]
+      # For visualization
+      depth_bbox_img = np.ones((h,w,3)).astype(np.uint8)*255
+      depth_bbox_img[slice_x, slice_y] = depth_image_bbox
 
-        
-        # 5. Find xyz
-        # a. find z
-        row, col, ch = depth_image_bbox.shape
-        
-        def findMiddle(number:int)-> int:
-          if number%2==0:
-            return int(number/2)
-          else:
-            return int((number-1)/2)
-        # 0=z, 1=x, 2=y
-        y0 = depth_image_bbox[:,findMiddle(col),1].mean()
-        # x1 = depth_image_bbox[findMiddle(row),:,1].mean()
-        x0 = depth_image_bbox[findMiddle(row),:,2].mean()
-        # y1 = depth_image_bbox[:,findMiddle(col),2].mean()
-        z = depth_image_bbox[:,:,0]
-        
-        # Handle nans and flatten it, then cluster it
-        z_no_non = z[~np.isnan(z)]
-        z_flat = z_no_non[~np.isinf(z_no_non)].reshape(-1,1)
-        self.kmeans.fit(z_flat)
-        z = self.kmeans.cluster_centers_.min()
-        # print(x0,x1,y0,y1,z)
-        xyz = (x0,y0,z)
-        
-        # Publish point
-        p = Point()
-        p.x, p.y, p.z = float(x0), float(y0), float(z)
+      
+      # 4. Find xyz
+      # a. find z
+      row, col, ch = depth_image_bbox.shape
+      
+      def findMiddle(number:int)-> int:
+        if number%2==0:
+          return int(number/2)
+        else:
+          return int((number-1)/2)
+      # 0=z, 1=x, 2=y
+      y0 = depth_image_bbox[:,findMiddle(col),1].mean()
+      # x1 = depth_image_bbox[findMiddle(row),:,1].mean()
+      x0 = depth_image_bbox[findMiddle(row),:,2].mean()
+      # y1 = depth_image_bbox[:,findMiddle(col),2].mean()
+      z = depth_image_bbox[:,:,0]
+      
+      # Handle nans and flatten it, then cluster it
+      # z_no_non = z[np.isfinite(z)]
+      z_flat = z.reshape(-1,1)
+      self.kmeans.fit(z_flat)
+      z = self.kmeans.cluster_centers_.min()
+      # print(x0,x1,y0,y1,z)
+      xyz = (x0,y0,z)
+      
+      # Publish point
+      p = Point()
+      p.x, p.y, p.z = float(x0), float(y0), float(z)
+      if math.isinf(p.x) or math.isinf(p.y) or math.isinf(p.z):
+        return None, None, None
+      else:
         self.pub_coor.publish(p)
 
-        # print(x,y,z)
-        # depth_bbox_img = cv2.cvtColor(depth_bbox_img,cv2.COLOR_GRAY2RGB)
-
-        return boxes, depth_bbox_img, xyz
-      else:
-        return None, None, None
+      return boxes, depth_bbox_img, xyz
     else:
       return None, None, None
 

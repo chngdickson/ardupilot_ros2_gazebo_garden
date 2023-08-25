@@ -2,7 +2,7 @@
 mavros_node:
   ros__parameters:
     fcu_url: "udp://127.0.0.1:14550@"
-    gcs_url: "udp://:115200@"
+    gcs_url: ""
     tgt_system: 1
     tgt_component: 1
     heartbeat_rate: 1.0
