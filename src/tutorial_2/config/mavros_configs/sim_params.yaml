@@ -6,6 +6,6 @@ mavros_node:
     tgt_system: 1
     tgt_component: 1
     heartbeat_rate: 1.0
-    publish_sim_time: false
+    publish_sim_time: true
     # For real-hardware, use this command.
     # mavproxy.py --master=/dev/ttyUSB0,57600 --out=udp:127.0.0.1:14550

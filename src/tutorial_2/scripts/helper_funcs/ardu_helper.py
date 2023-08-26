@@ -71,7 +71,7 @@ class Ardu_Ros_Connect(Node):
     self.sub_waypoints = self.create_subscription(WaypointList,'/mavros/mission/waypoints',self.cb_waypoints, 10)
     self.sub_home_pose = self.create_subscription(HomePosition,'/mavros/home_position/home',self.cb_home_pose, qos_whatever_dude)
     self.sub_coor_pose = self.create_subscription(Point,'/rgbd_camera/points/coordinate', self.cb_coor_pose, qos_reliable)
-    # self.sub_waypoints = self.create_subscription(WaypointList,'/mavros/mission/waypoints',self.cb_waypoints, qos_reliable)
+    
     
     # Publishers
     self.pub_state = self.create_publisher(State, "/mavros/state", 10)
@@ -551,13 +551,19 @@ class Ardu_Ros_Connect(Node):
     print("original:",xyz_rel_to_origin,"\nnew" ,xyz)
     return [lat_new, lon_new, alt_new]
   
-  def PID_obj_det(self,tol:Point = Point(x=0.15, y=0.15, z=3.5), timeout=3.0):
+  def PID_obj_det(self,
+                  tol:Point = Point(x=0.15, y=0.15, z=3.5),
+                  kp:list = [0.4, 0.4, 0.3],
+                  ki:list = [0.02, 0.02, 0.02],
+                  kd:list = [0.02, 0.02, 0.02],
+                  timeout=3.0
+                  ):
     em_msg = TwistStamped()
     
     # Initialization
     integral = np.array([0, 0, 0])
     prev_err = np.array([0, 0, 0])
-    kps, kis, kds = np.array([.4, .4, .3]), np.array([0.02, 0.02, 0.02]), np.array([0.02, 0.02, 0.02])
+    kps, kis, kds = np.array(kp), np.array(ki), np.array(kd)
     unreached = True
     start = time.time()
     while unreached and (time.time() - start) < timeout:

@@ -7,7 +7,6 @@ from rclpy.executors import MultiThreadedExecutor, ExternalShutdownException
 from rclpy.node import Node
 
 from ardu_helper import Ardu_Ros_Connect
-from object_detection import CoordinateDetector
 
 from geometry_msgs.msg import Point
 def run_executors(nodes: List[Node], lambda_func):
@@ -51,6 +50,7 @@ def main(node_drone: Ardu_Ros_Connect):
   node_drone.await_waypoints_before_takeoff()
   # node_drone.clr_waypoints()
   wps = node_drone.get_waypoints()
+  node_drone.arm_disarm(arming=True)
   node_drone.takeoff(TAKEOFF_ALT)
   
   for i, wp in enumerate(wps):
@@ -58,9 +58,15 @@ def main(node_drone: Ardu_Ros_Connect):
       lat=wp[0], long=wp[1], alt=wp[2]+TAKEOFF_ALT, heading=wp[3]
     )
     node_drone.get_logger().info(f"wp [{i}] reached out of {len(wps)}")
+    
     node_drone.PID_obj_det(
-      tol= Point(x=0.1, y=0.1, z=3.0),
+      tol= Point(x=0.12, y=0.12, z=3.5),
+      kp = [0.3, 0.3, 0.3],
+      ki = [0.1, 0.1, 0.1],
+      kd = [0.2, 0.2, 0.2],
+      timeout= 1.0
     )
+    node_drone.get_logger().info(f"PID [{i}] completed, moving to next wp")
   node_drone.returnToHome()
   
   

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3 
 import numpy as np
 # import quaternion
-from transforms3d.euler import euler2quat, quat2euler
 import math
 from math import radians
 import transforms3d as tf   

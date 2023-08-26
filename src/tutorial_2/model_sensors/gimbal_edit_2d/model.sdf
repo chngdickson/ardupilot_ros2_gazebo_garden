@@ -105,6 +105,8 @@
       </axis>
       <pose>0 0 0.02 0 0 0</pose>
     </joint>
-
+    <plugin filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+    </plugin>
   </model>
 </sdf>

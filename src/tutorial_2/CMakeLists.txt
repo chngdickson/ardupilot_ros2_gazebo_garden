@@ -37,8 +37,13 @@ install(PROGRAMS
   scripts/helper_funcs/ros_helper.py
   scripts/helper_funcs/math_helper.py
   scripts/helper_funcs/geo_helper.py
-  scripts/helper_funcs/object_detection.py
+  scripts/helper_funcs/sort_kalman_filter/draw_labels.py
+  scripts/helper_funcs/sort_kalman_filter/kalmanFilterBetter.py
+  scripts/helper_funcs/sort_kalman_filter/sort_hungarian_KF.py
+  
+  scripts/object_detection.py
   scripts/main.py
+
   DESTINATION lib/${PROJECT_NAME}
 )
 

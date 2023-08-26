@@ -13,6 +13,10 @@
     "/home/ds/ros_gz/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
     "/home/ds/ros_gz/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
     "/opt/ros/humble/lib/python3.10/site-packages",
-    "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    "/opt/ros/humble/local/lib/python3.10/dist-packages",
+    "./scripts/helper_funcs",
+    "./scripts/helper_funcs",
+    "./scripts/helper_funcs/sort_kalman_filter",
+    "./scripts/helper_funcs/sort_kalman_filter"
   ]
 }

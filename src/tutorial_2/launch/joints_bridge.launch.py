@@ -20,11 +20,14 @@ def generate_launch_description():
     arguments=[
         '/world/iris_runway2/model/iris_ardu_camera/joint_state@'
         'sensor_msgs/msg/JointState[gz.msgs.Model',
+        '/world/iris_runway2/model/iris_ardu_camera/model/gimbal/joint_state@'
+        'sensor_msgs/msg/JointState[gz.msgs.Model',
         '/model/iris_ardu_camera/pose@'
         'tf2_msgs/msg/TFMessage[gz.msgs.Pose_V'
     ],
     remappings=[
         (f'/world/iris_runway2/model/iris_ardu_camera/joint_state', '/joint_states'),
+        (f'/world/iris_runway2/model/iris_ardu_camera/model/gimbal/joint_state', '/gimbal_joint_states'),
         (f'/model/iris_ardu_camera/pose', '/tf')
         ],
     output='screen'

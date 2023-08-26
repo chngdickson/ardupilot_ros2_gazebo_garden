@@ -29,7 +29,7 @@ def launch_setup(context, *args, **kwargs):
     arguments=["--ros-args", "--log-level", log_level]
     
   )
-  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0"]
+  cmd = ["sim_vehicle.py","-v","ArduCopter","-f","gazebo-iris","--model","JSON","--map","--console","--custom-location","2.868877,101.411648,0,0","--"]
   subprocess.Popen(cmd)
   return [mavros_node]
   
