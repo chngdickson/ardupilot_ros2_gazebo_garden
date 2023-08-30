@@ -66,6 +66,8 @@ def main(node_drone: Ardu_Ros_Connect):
       kd = [0.2, 0.2, 0.2],
       timeout= 1.0
     )
+    # TODO: Spray Controls has to be inserted here.
+    # TODO: INCREASE THE DRONE's Altitude by 0.5m using Velocity Control
     node_drone.get_logger().info(f"PID [{i}] completed, moving to next wp")
   node_drone.returnToHome()
   
