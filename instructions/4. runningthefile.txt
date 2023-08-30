@@ -1,7 +1,0 @@
-pip install requirements.txt
-
-colcon build
-
-ros2 launch tutorial_2 main.launch.py
-
-ros2 launch tutorial_2 nodes.launch.py
